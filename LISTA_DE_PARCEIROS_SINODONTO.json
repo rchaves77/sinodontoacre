@@ -1,0 +1,941 @@
+{
+  "dataAtualizacao": "17/06/2026",
+  "parceiros": [
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Academias",
+      "nome": "COLISEU Academia",
+      "tag_desconto": "15% OFF",
+      "beneficio": "Oferece 15% de desconto para os sindicalizados.",
+      "endereco": "Rua Jambo, 76 – Morada do Sol – Rio Branco",
+      "telefone": "68 2102-5573"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Academias",
+      "nome": "POWER FITNESS Academia",
+      "tag_desconto": "10% OFF",
+      "beneficio": "Oferece desconto de 10% para os sindicalizados.",
+      "endereco": "Rua Mercúrio, 687 – Morada do Sol",
+      "telefone": "68 3301-7280"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Academias",
+      "nome": "CENTRO DE TREINAMENTO DE ARTES MARCIAIS PITBULL",
+      "tag_desconto": "13% OFF",
+      "beneficio": "Oferece desconto de 13% nas mensalidades, (exceto nas atividades da Mestra Aldeniza).",
+      "endereco": "Rua Cícero Leão de Paiva 332, Loteamento Isaura Parente, Rio Branco - AC",
+      "telefone": "68 99209-2286"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Beleza",
+      "nome": "DEPYL ACTION",
+      "tag_desconto": "10% OFF",
+      "beneficio": "10% em todos os serviços.",
+      "endereco": "Estrada do Aviário, 653 - Aviário",
+      "telefone": "3223-4890"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Beleza",
+      "nome": "NOVA FACE CLEAN",
+      "tag_desconto": "10% OFF",
+      "beneficio": "10% nas consultas. (Não inclui produtos estéticos e procedimento com dermatologista).",
+      "endereco": "Rua Major Ladislau Ferreira, 1427 – Mascarenhas de Morais",
+      "telefone": "3227-7470 / 3227-6515"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Beleza",
+      "nome": "CASA BELMINA",
+      "tag_desconto": "10% OFF",
+      "beneficio": "10% em todos os produtos (Não inclui produtos em promoção).",
+      "endereco": "Via Verde Shopping, Estrada da Floresta, 2320 - loja 068",
+      "telefone": "99212-0751"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Beleza",
+      "nome": "GLOSS ATELIER DA BELEZA",
+      "tag_desconto": "10% OFF",
+      "beneficio": "Desconto de 10% nos serviços oferecidos.",
+      "endereco": "Rua Rio de Janeiro, 322 – Galeria Bessa, Sala 01 – Rio Branco",
+      "telefone": "99944-3027"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Beleza",
+      "nome": "BARBEARIA BRAZUCA",
+      "tag_desconto": "10% OFF",
+      "beneficio": "Oferece desconto de 10% em todos os serviços (exceto produtos e assinatura mensal).",
+      "endereco": "Travessa Conquista 435 – Residencial Iolanda e Rua Minas Gerais 546, 2º Piso Preventório",
+      "telefone": "68 99204-6128"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Beleza",
+      "nome": "DUO CLINIC",
+      "tag_desconto": "Até 18% OFF",
+      "beneficio": "Oferece: 10% nos serviços em cartão de crédito; 12% em débito, pix e espécie; 18% nos pacotes exclusivos de criofrequência e bioimpedância. Não inclui consultas nutricionais/dermatológicas, enzima botulínica, pós-operatório e luz pulsada.",
+      "endereco": "Rua Antônio Monteiro, 104 - Ipase, Rio Branco - AC",
+      "telefone": "(68) 99966-6105"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Beleza",
+      "nome": "SCOV",
+      "tag_desconto": "10% OFF",
+      "beneficio": "Oferece desconto de 10% para os sindicalizados.",
+      "endereco": "Avenida Nações Unidas, 361 Bosque – Rio Branco",
+      "telefone": "(68) 2102-0525"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Beleza",
+      "nome": "DON VINTAGE",
+      "tag_desconto": "10% OFF",
+      "beneficio": "Oferece aos associados, dependentes e funcionários, 10% de desconto nos serviços de corte e barba.",
+      "endereco": "Rua Rio de Janeiro, 1158 (Abrahão Alab) / Rua Cícero Leão de Paiva, 28 (Manoel Julião) / Alameda Grécia, 306 (Jardim Europa)",
+      "telefone": "68 99948-8502 / 99955-8052"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Cursos",
+      "nome": "CNA Idiomas",
+      "tag_desconto": "Até 15% OFF",
+      "beneficio": "Oferece 15% de desconto para filiados e dependentes nos pagamentos à vista, e 10% nos parcelados, incidentes no valor do investimento do curso semestral.",
+      "endereco": "Rua João Paulo XXIII, 1002 - Bairro Village Maciel - Rio Branco/AC",
+      "telefone": "(68) 3224-6986 / (68) 99914-1212"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Cursos",
+      "nome": "ESCOLA JOE IDIOMAS",
+      "tag_desconto": "Até 30% OFF",
+      "beneficio": "Oferece 5% de desconto em todos os cursos e 30% no Curso de Inglês para Viagens.",
+      "endereco": "Rua Abacaxi, 74 – Morada do Sol, Rio Branco/AC",
+      "telefone": "68 99602-6467"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Cursos",
+      "nome": "WIZARD RIO BRANCO - Dom Giocondo",
+      "tag_desconto": "10% OFF",
+      "beneficio": "Desconto de 10% no material didático à vista; Parcelamentos especiais em até 12x no cartão ou 10x no boleto; Desconto de 10% no curso anual (Connections / Interactive / Kids). Benefício estendido para parentes diretos.",
+      "endereco": "Rua São Paulo, 537 - Dom Giocondo, Rio Branco - AC",
+      "telefone": "68 99216-1772"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Cursos",
+      "nome": "WIZARD RIO BRANCO - Jardim de Alah",
+      "tag_desconto": "10% OFF",
+      "beneficio": "Desconto de 10% no material didático à vista; Parcelamentos especiais em até 12x no cartão ou 10x no boleto; Desconto de 10% no curso anual (Connections / Interactive / Kids). Benefício estendido para parentes diretos.",
+      "endereco": "Rua Fátima Maia, 390 Jardim de Alah, Rio Branco - AC",
+      "telefone": "68 99971-1724"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Docerias",
+      "nome": "MONDI DOCERIA",
+      "tag_desconto": "5% OFF",
+      "beneficio": "Oferece desconto de 5% para os sindicalizados.",
+      "endereco": "Rua Hugo carneiro, 1027 – Bosque",
+      "telefone": "68 9413-2163"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Docerias",
+      "nome": "LUGANO VIA VERDE SHOPPING",
+      "tag_desconto": "5% OFF",
+      "beneficio": "Oferece 5% de desconto nos pagamentos à vista (dinheiro, débito, crédito e pix). Não aplicável para crédito parcelado.",
+      "endereco": "Quiosque 11 no Via Verde Shopping - corredor A, em frente à Santa Lola",
+      "telefone": "Não informado"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Escolas",
+      "nome": "ESCOLA ABC",
+      "tag_desconto": "10% OFF",
+      "beneficio": "Oferece desconto de 10% na mensalidade para os sindicalizados.",
+      "endereco": "Travessa Mirim, 64 - Aviário, Rio Branco - AC",
+      "telefone": "68 98401-5762"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Escolas",
+      "nome": "ESCOLA AME",
+      "tag_desconto": "20% OFF",
+      "beneficio": "Oferece desconto de 20% para os sindicalizados.",
+      "endereco": "R. Antônio Pinheiro Sobrinho, 521 - Santa Quitéria, Rio Branco – AC",
+      "telefone": "3228-3181"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Escolas",
+      "nome": "ESCOLA ÁGUIAS DO SABER",
+      "tag_desconto": "10% OFF",
+      "beneficio": "Oferece desconto de 10% na mensalidade para os sindicalizados.",
+      "endereco": "Estrada do São Francisco, 255 - São Francisco, Rio Branco - AC",
+      "telefone": "(68) 3223-8493"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Escolas",
+      "nome": "ESCOLA NEW SOLAR SCHOOL",
+      "tag_desconto": "5% OFF",
+      "beneficio": "Oferece desconto de 5% na mensalidade para os sindicalizados.",
+      "endereco": "Rua Dos Antúrios 754 Tropical, Rio Branco - AC",
+      "telefone": "68 99900-1717"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Escolas",
+      "nome": "SOCIEDADE EDUCACIONAL E CULTURAL META EIRELI",
+      "tag_desconto": "Até 20% OFF",
+      "beneficio": "Oferece aos associados, dependentes e funcionários, desconto de 10% nas mensalidades e 20% nas apostilas didáticas até a data do vencimento.",
+      "endereco": "Rua Rubens Carneiro, 536 – Abraão Alab, Rio Branco-AC",
+      "telefone": "3226-2404"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Escolas",
+      "nome": "SESI ACRE",
+      "tag_desconto": "10% OFF",
+      "beneficio": "Oferece 10% nos serviços de atividade física. Na Escola SESI concede 5% de desconto para o turno vespertino e 5% de desconto por pontualidade a partir da 2ª parcela.",
+      "endereco": "Rua Isaura Parente, 2710 – Loteamento Isaura Parente – Rio Branco – AC",
+      "telefone": "68 99977-0705 / 99971-9223"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Escolas",
+      "nome": "ESCOLA DE PROGRAMAÇÃO CÓD KID",
+      "tag_desconto": "10% OFF",
+      "beneficio": "Oferece 10% de desconto na mensalidade para os sindicalizados. Não inclui materiais didáticos impressos obrigatórios.",
+      "endereco": "Rua Alameda Grécia, Nº 190 – Bairro Jardim Europa, Rio Branco - AC",
+      "telefone": "68 99262-5468"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Hotéis",
+      "nome": "HOTEL IBIS RIO BRANCO",
+      "tag_desconto": "10% OFF",
+      "beneficio": "Desconto de 10% na tarifa balcão com ou sem café da manhã (opção à escolha do cliente).",
+      "endereco": "Estr. Dias Martins, 4600 - Conj. Tucumã",
+      "telefone": "3321-2900 / 99958-5792"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Lavanderias",
+      "nome": "LAVANDERIA 5ÀSEC",
+      "tag_desconto": "10% OFF",
+      "beneficio": "10% de desconto (não cumulativa com outras promoções, combos e parcerias/convênios).",
+      "endereco": "Av. Antônio da Rocha Viana, 1840 – Vila Ivonete",
+      "telefone": "3223-5500"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Lavanderias",
+      "nome": "LAUNDROMATEUS LAVANDERIA (LAUNDROMAT LTDA)",
+      "tag_desconto": "10% OFF",
+      "beneficio": "Desconto de 10% nos serviços oferecidos. NÃO se aplica para PROMOÇÕES e PACOTES.",
+      "endereco": "Av. Ceará, 1916 Bosque (ao lado da sorveteria Pinguim)",
+      "telefone": "3301-7406"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Lavanderias",
+      "nome": "MARIA LAVANDERIA",
+      "tag_desconto": "10% OFF",
+      "beneficio": "Oferece 10% de desconto para os sindicalizados.",
+      "endereco": "Estrada do Aviário, 809 - Aviário - Rio Branco/AC",
+      "telefone": "(68) 99905-3167"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Papelarias",
+      "nome": "PAPELARIA GLOBO",
+      "tag_desconto": "Até 12% OFF",
+      "beneficio": "Descontos concedidos: 8% no Cartão de Crédito, 10% no Cartão de Débito e 12% em Dinheiro.",
+      "endereco": "Av. Ceará, 2657 - Dom Giocondo / Rua Floriano Peixoto, 751",
+      "telefone": "3026-1073 / 3226-5822"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Papelarias",
+      "nome": "PAPELARIA MILZ",
+      "tag_desconto": "10% OFF",
+      "beneficio": "Desconto padrão de 10% nos produtos.",
+      "endereco": "R. Mal. Deodoro, 682 - Centro",
+      "telefone": "3224-6753"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Posto de Lavagem",
+      "nome": "POSTO DE LAVAGEM LEVE BEM CAR",
+      "tag_desconto": "15% OFF",
+      "beneficio": "Oferece 15% de desconto nos serviços de lavagem automotiva.",
+      "endereco": "Av. Antônio da Rocha Viana, anexo ao Posto Village",
+      "telefone": "9993-6276"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Restaurante / Alimentação",
+      "nome": "AÇAÍ DA MORADA & ESPETIN DA MORADA",
+      "tag_desconto": "5% OFF",
+      "beneficio": "Oferece 5% de desconto para os sindicalizados nas unidades especificadas.",
+      "endereco": "Rua Marte, 1159 (Bairro Morada do Sol) / Av. Noroeste, 681 (Conj. Tucumã)",
+      "telefone": "(68) 99991-2446 / (68) 99920-2979"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Restaurante / Alimentação",
+      "nome": "AFA BISTRÔ D' AMAZONIA",
+      "tag_desconto": "10% OFF",
+      "beneficio": "Oferece 10% de desconto para os sindicalizados.",
+      "endereco": "Rua Franco Ribeiro, 109 - Centro, Rio Branco - AC",
+      "telefone": "Não informado"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Restaurante / Alimentação",
+      "nome": "DIVINO FOGÃO",
+      "tag_desconto": "20% OFF",
+      "beneficio": "Oferece 20% de desconto para os sindicalizados na unidade do shopping.",
+      "endereco": "Via Verde, 1707 - 89 - Floresta, Rio Branco – AC (Shopping Via Verde)",
+      "telefone": "Não informado"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Restaurante / Alimentação",
+      "nome": "ESPETÃO DO JOÃO",
+      "tag_desconto": "Até 10% OFF",
+      "beneficio": "Oferece desconto de: 10% em Dinheiro ou Pix; 5% nos cartões de débito ou crédito, para os sindicalizados.",
+      "endereco": "Rua Dom Bosco, 541 - Bosque",
+      "telefone": "68 99234-4293"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Restaurante / Alimentação",
+      "nome": "NATTO BISTRÔ e CAFÉ",
+      "tag_desconto": "Até 10% OFF",
+      "beneficio": "Desconto de 10% em pagamento à vista em dinheiro, e 7% em pagamento no cartão de débito ou crédito.",
+      "endereco": "Rua Ipanema, 6 Loja 2 - Village Wilde Maciel, Rio Branco - AC",
+      "telefone": "68 99971-9972"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Restaurante / Alimentação",
+      "nome": "RESTAURANTE PÃO DE QUEIJO",
+      "tag_desconto": "10% OFF",
+      "beneficio": "10% de desconto efetuando o pagamento em dinheiro ou cartão de débito.",
+      "endereco": "Av. Nações Unidas, 2123 - Estação Experimental",
+      "telefone": "3226-6655 / 99985-2775"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Restaurante / Alimentação",
+      "nome": "SR. ESPETO",
+      "tag_desconto": "10% OFF",
+      "beneficio": "Oferece desconto de 10% para os sindicalizados.",
+      "endereco": "Av. Antônio da Rocha Viana, 2585 – Gal. América Boa Esperança",
+      "telefone": "68 99906-2228"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Restaurante / Alimentação",
+      "nome": "BAR E RESTAURANTE QUINTAL DO GELEIA (M R N PIMENTEL)",
+      "tag_desconto": "10% OFF",
+      "beneficio": "Oferece desconto de 10% para os sindicalizados.",
+      "endereco": "Rua Minas Gerais, 108, bairro Dom Giocondo",
+      "telefone": "99205-5827"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Restaurante / Alimentação",
+      "nome": "AMANÁ RESTAURANTE (KHALIL E CURADO LTDA)",
+      "tag_desconto": "5% OFF",
+      "beneficio": "Oferece desconto de 5% no valor do consumo, válido de terça-feira à sexta-feira, para os sindicalizados.",
+      "endereco": "Estrada da Floresta, Sala 3 n° 574, Bairro Nova Esperança",
+      "telefone": "68 99969-0335"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Restaurante / Alimentação",
+      "nome": "Espaço A Restaurante",
+      "tag_desconto": "10% OFF",
+      "beneficio": "Oferece 10% de desconto para os sindicalizados (Não inclui bebidas).",
+      "endereco": "Rua Manaus nº 311, Parque das Palmeiras, Rio Branco",
+      "telefone": "68 99967-2427"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Restaurante / Alimentação",
+      "nome": "JUPARÁ Restaurante e Pizzaria",
+      "tag_desconto": "7% OFF",
+      "beneficio": "Oferece aos associados, dependentes e funcionários, desconto de 7% no consumo da pizzaria.",
+      "endereco": "Via Verde - BR 364 Portal da Amazônia - Rio Branco /AC",
+      "telefone": "68 99203-5151"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Restaurante / Alimentação",
+      "nome": "CONSAGRADA",
+      "tag_desconto": "Até 15% OFF",
+      "beneficio": "Oferece aos associados, dependentes e funcionários, desconto de 10% em toda a loja, e 15% nas compras acima de 100 reais.",
+      "endereco": "Rua Manaus, Galeria Eloah, Sala 07 – Loteamento Isaura Parente",
+      "telefone": "68 99927-1938"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Saúde e Diagnóstico",
+      "nome": "BIONORTE LABORATÓRIO",
+      "tag_desconto": "Até 30% OFF",
+      "beneficio": "Oferece até 30% de desconto por exame laboratorial executado.",
+      "endereco": "R. Alvorada, 125 - Bosque",
+      "telefone": "3224-9847"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Saúde e Diagnóstico",
+      "nome": "Dra. ELAINE LEAL - Ginecologista",
+      "tag_desconto": "14% OFF",
+      "beneficio": "Oferece desconto de 14% para os sindicalizados nos atendimentos ginecológicos.",
+      "endereco": "Travessa Condé, 112 - Clínica Grand Vittá – Sala 304 - Bosque",
+      "telefone": "68 99963-7120 / 99210-9523"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Saúde e Diagnóstico",
+      "nome": "CEDIMP CENTRO DE DIAGNÓSTICO POR IMAGENS",
+      "tag_desconto": "30% OFF",
+      "beneficio": "Oferece 30% de desconto nos exames com base na tabela do convênio.",
+      "endereco": "Rua Valério Magalhães, 63 Bosque",
+      "telefone": "3223-4345"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Saúde e Diagnóstico",
+      "nome": "IMUNOCLÍNICAS Rio Branco",
+      "tag_desconto": "Até 10% OFF",
+      "beneficio": "Descontos de: 10% nas vacinas/pacotes à vista (dinheiro); 8% no pix; 3% no cartão em até 4x. Parceria estendida para esposo(a) e filhos mediante apresentação da carteira de associado.",
+      "endereco": "Rua Francisco Mangabeira, 95, Sala 101, Bairro Bosque – Rio Branco – AC",
+      "telefone": "(68) 2102-5197 / 99229-6797"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Saúde e Diagnóstico",
+      "nome": "LABORATÓRIO MAIS SAÚDE",
+      "tag_desconto": "30% OFF",
+      "beneficio": "Oferece 30% de desconto referente à tabela particular de exames.",
+      "endereco": "Av. Getúlio Vargas, 1665 – Bosque - antiga loja Todeschini",
+      "telefone": "2102-8222 / 99239-4026"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Saúde e Diagnóstico",
+      "nome": "LABORATÓRIO CARLOS CHAGAS",
+      "tag_desconto": "Até 50% OFF",
+      "beneficio": "Oferece desconto variável de 10% a 50% para os sindicalizados.",
+      "endereco": "Av. Getúlio Vargas, 1861 – Bosque",
+      "telefone": "68 3224-4198 / 99948-3824"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Saúde e Diagnóstico",
+      "nome": "ULTRACLÍNICA",
+      "tag_desconto": "Tabela Especial",
+      "beneficio": "Ultrassonografia e Clínica Médica – Oferece descontos diferenciados (conforme tabela) para os sindicalizados.",
+      "endereco": "Rua Silvestre Coelho, 213 – Bosque",
+      "telefone": "2102-2030 / 99220-1206"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Saúde e Diagnóstico",
+      "nome": "CEDIAC",
+      "tag_desconto": "Tabela Especial",
+      "beneficio": "Oferece desconto diferenciado para os sindicalizados, dependentes e funcionários, conforme tabela interna.",
+      "endereco": "Rua Hugo Carneiro, 689 - Bosque, Rio Branco-AC",
+      "telefone": "(68) 3302-0260 / 98111-1859"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Saúde e Diagnóstico",
+      "nome": "LABORATÓRIO DR FÉLIX BESTENE",
+      "tag_desconto": "Desconto Direto",
+      "beneficio": "Oferece desconto especial aos associados, dependentes e funcionários nos exames disponíveis.",
+      "endereco": "Avenida Nações Unidas, 182, Bosque, Rio Branco - AC",
+      "telefone": "(68) 99226-1270"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Saúde e Diagnóstico",
+      "nome": "LabRim LABORATÓRIO de análises clínicas",
+      "tag_desconto": "30% OFF",
+      "beneficio": "Oferece desconto de 30% para pagamentos à vista ou cartão, estendido aos associados, dependentes e funcionários.",
+      "endereco": "Rua Antunes de Alencar, 45 - Bosque, Rio Branco - AC",
+      "telefone": "(68) 99229-3692"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Terapias e Psicologia",
+      "nome": "ESPAÇO SER",
+      "tag_desconto": "Até 20% OFF",
+      "beneficio": "Sessões de psicoterapia com 24% de desconto e avaliações neuropsicológicas com 10%. Corpo técnico: Adejane Almeida, Joelma Patrícia, Marcella Passarelli, Rocilene Cordeiro, Maria do Socorro e Jéssica Carolina.",
+      "endereco": "Travessa Padre Manoel da Nóbrega, 120 - Bosque",
+      "telefone": "68 2102-8158 / WA: 68 9602-6259"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Terapias e Psicologia",
+      "nome": "INSTITUTO OTORHINUS e ESPECIALIDADES Eireli",
+      "tag_desconto": "20% OFF",
+      "beneficio": "Oferece desconto padrão de 20% para os sindicalizados, conforme tabela pré-estabelecida.",
+      "endereco": "Rua Valério Magalhães, 366 – Bosque",
+      "telefone": "3223-4516 / 99250-3716"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Terapias e Psicologia",
+      "nome": "MATEUS FERRAZ - Terapia Manual",
+      "tag_desconto": "20% OFF",
+      "beneficio": "Terapeuta Especializado em Terapia Manual - Oferece 20% de desconto para os sindicalizados.",
+      "endereco": "Rua Isaura Parente, 3048, Conjunto Paulo César de Oliveira, Clínica da Galeria B&S - Sala 20",
+      "telefone": "Não informado"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Terapias e Psicologia",
+      "nome": "Golden Studio Pilates - Rio Branco",
+      "tag_desconto": "10% OFF",
+      "beneficio": "Oferece desconto de 10% no valor dos planos mensais para os sindicalizados, dependentes e funcionários.",
+      "endereco": "Rua Buriti, 343, bairro Jardim de Alah, Sala 12, 1º Piso, na Galeria Z",
+      "telefone": "(68) 99966-8286"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Terapias e Psicologia",
+      "nome": "Liberté",
+      "tag_desconto": "Até 25% OFF",
+      "beneficio": "Oferece descontos de 10% a 25% em serviços relacionados à psicologia clínica e avaliação psicológica, conforme tabela.",
+      "endereco": "R. Felicidade, 204 - Sala 8, Conjunto Mariana, Rio Branco - AC",
+      "telefone": "Não informado"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Terapias e Psicologia",
+      "nome": "CLÍNICA SENSORIS DE REABILITAÇÃO",
+      "tag_desconto": "40% OFF",
+      "beneficio": "Oferece desconto expressivo de 40% nos atendimentos clínicos para os sindicalizados.",
+      "endereco": "Rua Farroupilha, 136 Bosque",
+      "telefone": "(68) 99918-1864"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Terapias e Psicologia",
+      "nome": "INSTITUTO SERCLIN",
+      "tag_desconto": "Diferenciado",
+      "beneficio": "Oferece desconto DIFERENCIADO nos serviços clínicos para os sindicalizados, dependentes e funcionários.",
+      "endereco": "Rua Sorocaba, 140, Doca Furtado, Rio Branco/AC",
+      "telefone": "68 99216-1717"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Terapias e Psicologia",
+      "nome": "Clínica Corpo e Equilíbrio",
+      "tag_desconto": "Diferenciado",
+      "beneficio": "Oferece desconto DIFERENCIADO nos tratamentos corporais e reabilitação para os sindicalizados e dependentes.",
+      "endereco": "Rua das Oliveiras, 448 – Bairro Tropical – Rio Branco/AC",
+      "telefone": "(68) 99225-1001"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Terapias e Psicologia",
+      "nome": "Espaço Singular",
+      "tag_desconto": "10% OFF",
+      "beneficio": "Oferece aos associados, dependentes e funcionários, desconto linear de 10%.",
+      "endereco": "Rua Manoel Cesário, 564 - José Augusto - Rio Branco/AC",
+      "telefone": "68 99991-7971"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Terapias e Psicologia",
+      "nome": "Clínica de Reabilitação Infantil Avançada S/S LTDA",
+      "tag_desconto": "6% OFF",
+      "beneficio": "Oferece desconto de 6% sobre os serviços médicos especializados aos associados, dependentes e funcionários.",
+      "endereco": "Trav. Alexandre Lopes, 88 - José Augusto – CEP: 69900-770",
+      "telefone": "(68) 99231-0020"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Farmácias",
+      "nome": "A FÓRMULA FARMÁCIA DE MANIPULAÇÃO",
+      "tag_desconto": "Até 20% OFF",
+      "beneficio": "Oferece 20% de desconto em pagamentos à vista e 15% nas compras a prazo, em medicamentos e cosméticos manipulados.",
+      "endereco": "Rua Quintino Bocaiúva, 1.452 - Bosque",
+      "telefone": "68 99968-4616"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Farmácias",
+      "nome": "FLORA MANIPULAÇÃO e SUPLEMENTAÇÃO",
+      "tag_desconto": "25% OFF",
+      "beneficio": "Desconto linear de 25% concedido aos sindicalizados da unidade.",
+      "endereco": "Rua Marechal Deodoro, 1123 Ipase",
+      "telefone": "99986-1498 / 3222-7464"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Farmácias",
+      "nome": "FARMÁCIA VITÓRIA RÉGIA",
+      "tag_desconto": "Até 20% OFF",
+      "beneficio": "Oferece desconto de 5% a 10% em produtos industrializados e de 5% a 20% em produtos manipulados.",
+      "endereco": "Rua Rio de Janeiro, 88 - Centro, Rio Branco",
+      "telefone": "68 3224-2850 / 2880"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Farmácias",
+      "nome": "VIVA MAIS PRODUTOS NATURAIS",
+      "tag_desconto": "Até 10% OFF",
+      "beneficio": "Produtos de prateleira e a granel possuem 5% de desconto. Itens de Aromaterapia possuem 10% de desconto e parcelamento em até 2x no cartão.",
+      "endereco": "Av. Ceará, 2695 - Dom Giocondo",
+      "telefone": "99910-1061"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Óticas",
+      "nome": "DR ÓCULOS EIRELI",
+      "tag_desconto": "Até 15% OFF",
+      "beneficio": "Descontos sobre a tabela particular aplicados diretamente na unidade: 15% à vista em dinheiro; 10% à vista no cartão de débito/crédito; 5% parcelado no cartão de crédito.",
+      "endereco": "Avenida Ceará, 1276 – Sala 03 – Bairro Capoeira",
+      "telefone": "(68) 3301-5750 / 98413-0000"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Óticas",
+      "nome": "RICARDO ÓTICAS",
+      "tag_desconto": "10% OFF",
+      "beneficio": "Oferece desconto de 10% em cima das promoções vigentes e parcelamento facilitado em até 6 vezes sem juros.",
+      "endereco": "Rua Benjamin Constant, 533 - Centro Box 03, Rio Branco",
+      "telefone": "68 99998-3737"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Óticas",
+      "nome": "OFTALMO SERVICE",
+      "tag_desconto": "Diferenciado",
+      "beneficio": "Oferece desconto nos serviços oftalmológicos especializados com condições diferenciadas para colaboradores, associados/filiados e beneficiários.",
+      "endereco": "Rua Quintino Bocaiúva, 1221 - Centro",
+      "telefone": "68 99206-3205"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Veterinário / Pet Shop",
+      "nome": "PET CLIN CLÍNICA VETERINÁRIA",
+      "tag_desconto": "Até 10% OFF",
+      "beneficio": "Oferece 8% de desconto em produtos (EXCETO RAÇÕES E PRODUTOS JÁ EM PROMOÇÃO) e 10% em Serviços (EXCETO BANHO / PROMOÇÕES VIGENTES).",
+      "endereco": "Av. Nações Unidas, 2399 - 7º BEC, Rio Branco – AC",
+      "telefone": "(68) 99974-3482"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Vestuário",
+      "nome": "ABC Baby & Kids",
+      "tag_desconto": "10% OFF",
+      "beneficio": "Oferece desconto fixo de 10% para os sindicalizados nas compras de artigos infantis.",
+      "endereco": "Travessa Guaporé, 141 – Cerâmica",
+      "telefone": "68 99985-6593 / 3224-0175"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Vestuário",
+      "nome": "DALMOLIN",
+      "tag_desconto": "Até 12% OFF",
+      "beneficio": "Oferece desconto de 12% no débito, dinheiro ou pix, e 7% nas compras parceladas em até 6X sem juros no cartão. Acessórios não possuem desconto.",
+      "endereco": "Estrada da Invernada, 1195 – Morada do Sol",
+      "telefone": "68 3223-6344"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Vestuário",
+      "nome": "Dra. CHERIE – Revenda Rio Branco",
+      "tag_desconto": "Até 10% OFF",
+      "beneficio": "Oferece desconto de 10% para pagamentos à vista e 5% para parcelamentos em até 3x sem juros no cartão de crédito.",
+      "endereco": "Travessa Santa Inês, 188 - Aviário – Rio Branco - AC",
+      "telefone": "68 99282-3939"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Vestuário",
+      "nome": "MARIA FILÓ Acre",
+      "tag_desconto": "10% OFF",
+      "beneficio": "Oferece desconto padrão de 10% nos formatos de pagamento à vista e também nos parcelados.",
+      "endereco": "Rua Estrada do Aviário, 1064 – Bairro Aviário – Rio Branco/AC",
+      "telefone": "Não informado"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Vestuário",
+      "nome": "OUTLET LINGERIE",
+      "tag_desconto": "10% OFF",
+      "beneficio": "Concede desconto fixo de 10% em todas as compras efetuadas na galeria.",
+      "endereco": "Av. Ceará, 1221 Centro – Galeria Cunha",
+      "telefone": "68 99207-8845"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Vestuário",
+      "nome": "RC CASA",
+      "tag_desconto": "10% OFF",
+      "beneficio": "Oferece desconto institucional de 10% para todos os sindicalizados.",
+      "endereco": "Travessa Amapá, 292 Cerâmica",
+      "telefone": "68 99985-6763 / 3224-6973"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Vestuário",
+      "nome": "RC ÍNTIMA",
+      "tag_desconto": "10% OFF",
+      "beneficio": "Oferece desconto de 10% para os sindicalizados em itens selecionados da loja.",
+      "endereco": "Avenida Ceará, 750 – Sala 01 – Centro",
+      "telefone": "68 99912-0875 / 2102-3393"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Para seu Consultório",
+      "nome": "PRESERVA TRATAMENTO DE RESÍDUOS",
+      "tag_desconto": "10% OFF",
+      "beneficio": "Oferece desconto de 10% na tabela de serviços de coleta e descarte para os sindicalizados. Atende capital e interior.",
+      "endereco": "Atendimento estendido (Capital e Interior)",
+      "telefone": "68 98436-2993"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Para seu Consultório",
+      "nome": "CAROLINE P. CUNHA DE SÁ - Consultoria de Imagem",
+      "tag_desconto": "Até 15% OFF",
+      "beneficio": "Oferece 15% de desconto nos pagamentos à vista e 5% no cartão de crédito em serviços de Imagem e Estilo.",
+      "endereco": "Atendimento especializado (Consultoria Executiva)",
+      "telefone": "(41) 99134-0255"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Para seu Consultório",
+      "nome": "CHEMICAL Dedetizadora",
+      "tag_desconto": "20% OFF",
+      "beneficio": "Oferece 20% de desconto contratual para os sindicalizados em serviços de controle de pragas.",
+      "endereco": "Av. Ceará, 364 – Habitasa – Rio Branco/AC",
+      "telefone": "68 99903-4033 / 3224-9511"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Para seu Consultório",
+      "nome": "DENTAL BELIA",
+      "tag_desconto": "Até 10% OFF",
+      "beneficio": "Pagamento à vista (débito, crédito 1x, dinheiro) confere de 8% a 10% de desconto no balcão (exceto promoções). Entrega grátis acima de R$50. Parcelamentos de 2x a 6x sem juros.",
+      "endereco": "Rua Manoel Cesário, 234 – Capoeira",
+      "telefone": "3224-5500 / 1480"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Para seu Consultório",
+      "nome": "SERTEC ODONTO",
+      "tag_desconto": "Até 10% OFF",
+      "beneficio": "Concede descontos comerciais sob as seguintes condições: 10% no dinheiro e 5% realizando o pagamento via Pix.",
+      "endereco": "Rua Marechal Deodoro, 837",
+      "telefone": "3222-7540"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Para seu Consultório",
+      "nome": "SERTEC SERVIÇOS",
+      "tag_desconto": "5% OFF",
+      "beneficio": "Oferece 5% de desconto via Pix ou transferência bancária exclusivamente em peças de reposição técnica.",
+      "endereco": "Rua Marechal Deodoro, 837",
+      "telefone": "3222-7540 / 3224-9252"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Para seu Consultório",
+      "nome": "IINFOR PUBLI - Helena Nunes",
+      "tag_desconto": "10% OFF",
+      "beneficio": "Todos os serviços avulsos ou pacotes contam com 10% de desconto em 2026. Tabela Ref: Arte Feed R$40, Carrossel R$100, Edição vídeo R$110, Logomarca a partir de R$300, Gestão Redes R$300, Software de Gestão (Consultar).",
+      "endereco": "Atendimento Digital (Sede Operacional em Paulista/PE)",
+      "telefone": "(81) 98753-7683"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Para seu Consultório",
+      "nome": "ID PUBLICIDADES – Jacy Neto",
+      "tag_desconto": "Até 10% OFF",
+      "beneficio": "Concede 10% de desconto em pagamentos à vista em dinheiro (no ato da compra) e 5% de desconto no cartão de crédito.",
+      "endereco": "Rua Isaura Parente, 1412",
+      "telefone": "3227-6966 / 99282-9480"
+    },
+    {
+      "cidade": "Rio Branco",
+      "categoria": "Para seu Consultório",
+      "nome": "R.C.M Segurança Eletrônica e RCM Solar",
+      "tag_desconto": "10% OFF",
+      "beneficio": "Oferece 10% de desconto para os sindicalizados em sistemas de segurança eletrônica e módulos solares.",
+      "endereco": "Rua Santa Terezinha, 162 – Conquista – Rio Branco",
+      "telefone": "68 99247-8080"
+    },
+    {
+      "cidade": "Cruzeiro do Sul",
+      "categoria": "Saúde e Diagnóstico",
+      "nome": "FISIO+ SAÚDE INTEGRATIVA - CZS",
+      "tag_desconto": "Até 20% OFF",
+      "beneficio": "Oferece desconto de 10% a 20% nos serviços integrativos de acordo com o portfólio clínico.",
+      "endereco": "Rua Rio Grande do Sul, 1300 – Bairro São José – Cruzeiro do Sul",
+      "telefone": "68 99208-0909"
+    },
+    {
+      "cidade": "Cruzeiro do Sul",
+      "categoria": "Saúde e Diagnóstico",
+      "nome": "LABIMAGEM e CITOLAB MEDICINA DIAGNÓSTICA",
+      "tag_desconto": "Até 40% OFF",
+      "beneficio": "Descontos aplicados: Exames Laboratoriais 40%; Exames por imagem Raio-X 30%; Tomografias e Mamografias 10%; Eletrocardiograma com valor fixo de R$80,00.",
+      "endereco": "Polo de Diagnóstico Avançado - Cruzeiro do Sul",
+      "telefone": "Não informado"
+    },
+    {
+      "cidade": "Cruzeiro do Sul",
+      "categoria": "Saúde e Diagnóstico",
+      "nome": "IMUNOCLÍNICAS Cruzeiro do Sul",
+      "tag_desconto": "Até 10% OFF",
+      "beneficio": "Descontos de: 10% nas vacinas/pacotes à vista (dinheiro); 8% no pix; 3% no cartão em até 4x. Parceria restrita a cônjuges e filhos mediante carteira do titular.",
+      "endereco": "Avenida 15 de Novembro, 423, Centro – Cruzeiro do Sul – AC",
+      "telefone": "(68) 99246-0040"
+    },
+    {
+      "cidade": "Cruzeiro do Sul",
+      "categoria": "Saúde e Diagnóstico",
+      "nome": "PROMED Produtos Ortopédicos e Hospitalares",
+      "tag_desconto": "Até 10% OFF",
+      "beneficio": "Oferece desconto de 5% a 10% para os sindicalizados na aquisição de materiais.",
+      "endereco": "Distribuição e Atendimento - Cruzeiro do Sul",
+      "telefone": "68 99957-8163 / 99985-4277"
+    },
+    {
+      "cidade": "Cruzeiro do Sul",
+      "categoria": "Saúde e Diagnóstico",
+      "nome": "SEST / SENAT / CZS",
+      "tag_desconto": "20% OFF",
+      "beneficio": "Oferece 20% de desconto sobre o valor cobrado da comunidade nos atendimentos de Odontologia, Fisioterapia, Nutrição e Psicologia. Válido para titulares e dependentes (filhos até 21 anos).",
+      "endereco": "Estrada da Alemanha, n° 172-A – Bairro Gleba Formoso – Cruzeiro do Sul",
+      "telefone": "(68) 3311-3000"
+    },
+    {
+      "cidade": "Cruzeiro do Sul",
+      "categoria": "Terapias e Psicologia",
+      "nome": "FISIO SAÚDE MENTAL - CZS",
+      "tag_desconto": "Até 20% OFF",
+      "beneficio": "Oferece desconto estruturado de 10% a 20% para os profissionais sindicalizados.",
+      "endereco": "Rua Rio Grande do Sul, 1300 – Bairro São José – Cruzeiro do Sul",
+      "telefone": "68 99208-0909"
+    },
+    {
+      "cidade": "Cruzeiro do Sul",
+      "categoria": "Cursos",
+      "nome": "UNICESUMAR ENSINO A DISTÂNCIA",
+      "tag_desconto": "10% OFF",
+      "beneficio": "Concede 10% de desconto para filiados e dependentes nas mensalidades de Graduação, Técnicos e Pós-Graduação EAD. Cumulativo com campanhas promocionais de até 70%.",
+      "endereco": "Av. Lauro Müller, 507 - Bairro Baixa - Cruzeiro do Sul/AC (Polos em múltiplos municípios)",
+      "telefone": "(68) 99250-8633 / (68) 99917-2285"
+    },
+    {
+      "cidade": "Cruzeiro do Sul",
+      "categoria": "Comércio e Decoração",
+      "nome": "MAJU HOME CENTER",
+      "tag_desconto": "Até 10% OFF",
+      "beneficio": "Oferece 10% de desconto nos pagamentos à vista via Pix ou dinheiro, e 5% nos pagamentos em cartão de crédito (com parcelamento em até 12x sem juros).",
+      "endereco": "Avenida Boulevard Thaumaturgo, 842, em frente ao Copacabana Shopping",
+      "telefone": "Não informado"
+    },
+    {
+      "cidade": "Cruzeiro do Sul",
+      "categoria": "Comércio e Decoração",
+      "nome": "UTILIKASA MATRIZ",
+      "tag_desconto": "Até 10% OFF",
+      "beneficio": "Oferece 10% de desconto nos pagamentos à vista (Pix ou dinheiro) e 5% em cartão de crédito com parcelamentos em até 12x sem juros.",
+      "endereco": "Av. Cel Mâncio Lima, 310 - Centro (ao lado da Lotérica Boa Sorte)",
+      "telefone": "Não informado"
+    },
+    {
+      "cidade": "Cruzeiro do Sul",
+      "categoria": "Comércio e Decoração",
+      "nome": "UTILIKASA DECOR",
+      "tag_desconto": "Até 10% OFF",
+      "beneficio": "Oferece 10% nos pagamentos à vista por PIX ou em espécie e 5% em pagamentos via cartão de crédito parcelado em até 12x sem juros.",
+      "endereco": "Avenida Rodrigues Alves, 405 - Centro – Cruzeiro do Sul",
+      "telefone": "Não informado"
+    },
+    {
+      "cidade": "Cruzeiro do Sul",
+      "categoria": "Papelarias",
+      "nome": "PAPELI FEST",
+      "tag_desconto": "Até 10% OFF",
+      "beneficio": "Oferece 10% de desconto nas compras à vista (dinheiro, débito, pix, 1x no crédito) e 5% nas compras parceladas.",
+      "endereco": "Avenida Boulevard Thaumaturgo, 285 – Centro - Cruzeiro do Sul",
+      "telefone": "68 18-517"
+    },
+    {
+      "cidade": "Cruzeiro do Sul",
+      "categoria": "Papelarias",
+      "nome": "RIT’S PAPELARIA CRIATIVA",
+      "tag_desconto": "5% OFF",
+      "beneficio": "Oferece 5% de desconto em pagamentos no dinheiro ou pix para compras acima de R$ 50,00.",
+      "endereco": "Av. 17 de Novembro n° 253 - Morro da Glória - Cruzeiro do Sul/AC",
+      "telefone": "68 99282-4718"
+    },
+    {
+      "cidade": "Cruzeiro do Sul",
+      "categoria": "Restaurante / Alimentação",
+      "nome": "SUPER BURGER CZS",
+      "tag_desconto": "20% OFF",
+      "beneficio": "Oferece 20% de desconto linear em itens selecionados para os sindicalizados.",
+      "endereco": "Polo Gastronômico - Cruzeiro do Sul",
+      "telefone": "Não informado"
+    },
+    {
+      "cidade": "Cruzeiro do Sul",
+      "categoria": "Óticas",
+      "nome": "ATACADÃO DOS ÓCULOS - CZS",
+      "tag_desconto": "Até 20% OFF",
+      "beneficio": "Oferece aos associados, dependentes e funcionários: 15% de desconto no Cartão de Crédito (parcelado em até 6x) e 20% de desconto à vista (Dinheiro, Pix ou Débito).",
+      "endereco": "Rua Boulevard Thaumaturgo, nº 798 - Centro/Shopping Copacabana sala 32",
+      "telefone": "(68) 99901-8108"
+    },
+    {
+      "cidade": "Cruzeiro do Sul",
+      "categoria": "Serviços e Mídia",
+      "nome": "ANGEL MÍDIA",
+      "tag_desconto": "Preço Especial",
+      "beneficio": "Oferece aos associados, dependentes e funcionários condição especial para veiculação de anúncios em sua rede de mídia indoor por R$ 80,00 por tela.",
+      "endereco": "Rua Paraíba, 1431 - Telégrafo - Cruzeiro do Sul/AC",
+      "telefone": "(68) 99246-3670"
+    },
+    {
+      "cidade": "Cruzeiro do Sul",
+      "categoria": "Serviços e Mídia",
+      "nome": "AQA ASSESSORE QUÍMICA AMBIENTAL",
+      "tag_desconto": "Até 20% OFF",
+      "beneficio": "Oferece desconto de 10% para até duas análises por cliente e 20% para três ou mais análises. Válido para pagamentos à vista via PIX, espécie ou débito.",
+      "endereco": "Estrada BR 307, 1460 - Divisor - Cruzeiro do Sul/AC",
+      "telefone": "(68) 99957-4074"
+    },
+    {
+      "cidade": "Tarauacá",
+      "categoria": "Vestuário",
+      "nome": "KTYTA MODAS",
+      "tag_desconto": "Até 20% OFF",
+      "beneficio": "Oferece desconto de 10% à vista no cartão de débito e 20% à vista em dinheiro.",
+      "endereco": "R. Coronel Juvêncio de Menezes, 408 - Centro, Tarauacá",
+      "telefone": "68 3462-2906 / 99981-9523"
+    }
+  ]
+}
