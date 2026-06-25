@@ -5,32 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel de Parceiros - SINODONTO/AC</title>
     <script src="https://cdn.tailwindcss.com"></script>
-        <style>
-                /*
-                        Explicação (PT-BR):
-                        A propriedade CSS `background-clip` controla até onde o fundo (background)
-                        de um elemento se estende: `border-box`, `padding-box` ou `content-box`.
-                        Para efeito em texto (texto com gradiente) alguns navegadores exigem
-                        o prefixo `-webkit-` e também a propriedade `-webkit-text-fill-color: transparent`.
-
-                        Boas práticas de compatibilidade:
-                        - Declare primeiro a versão com prefixo (`-webkit-...`) quando precisar
-                            suportar navegadores WebKit antigos.
-                        - Depois declare a propriedade padrão (`background-clip`) para navegadores
-                            que seguem o padrão.
-                        Observação: `background-clip: text` não tem suporte completo em todos os
-                        navegadores (é historicamente implementado como `-webkit-background-clip: text`).
-                */
-                @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-                body { font-family: 'Inter', sans-serif; }
-                .gold-gradient-text {
-                        background: linear-gradient(135deg, #E5BA73 0%, #C5A880 50%, #957855 100%);
-                        -webkit-background-clip: text; /* compatibilidade WebKit antigo */
-                        background-clip: text;       /* propriedade padrão (quando suportada) */
-                        -webkit-text-fill-color: transparent; /* necessário para mostrar o gradiente no texto */
-                }
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .gold-gradient-text { background: linear-gradient(135deg, #E5BA73 0%, #C5A880 50%, #957855 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         
-        /* Oculta barras de rolagem nativas mantendo a rolagem ativa */
         ::-webkit-scrollbar { width: 6px; height: 6px; }
         ::-webkit-scrollbar-track { background: #070B19; }
         ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 3px; }
@@ -56,7 +35,7 @@
 
     <div class="hidden print:flex flex-row justify-between items-center border-b-2 border-amber-600 pb-3 mb-6 w-full">
         <div class="flex items-center gap-4">
-            <img src="logo sinodonto.png" alt="Logo SINODONTO" class="h-12 w-auto object-contain">
+            <div class="h-10 w-10 rounded-xl bg-amber-600 flex items-center justify-center font-bold text-white text-base">SD</div>
             <div>
                 <h1 class="text-lg font-bold text-black tracking-wide">SINODONTO / AC</h1>
                 <p class="text-[10px] text-slate-600 uppercase tracking-widest font-medium">Clube de Benefícios Corporativos</p>
@@ -69,7 +48,9 @@
         <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row justify-between items-center gap-6">
             
             <div class="flex items-center gap-4">
-                <img src="logo sinodonto.png" alt="Logo SINODONTO" class="h-14 w-auto object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
+                <div class="h-12 w-12 rounded-xl bg-gradient-to-tr from-amber-500 to-amber-700 p-0.5 shadow-lg flex-shrink-0">
+                    <div class="w-full h-full bg-[#070B19] rounded-[10px] flex items-center justify-center font-black text-amber-400 text-lg">SD</div>
+                </div>
                 <div class="border-l border-slate-800 pl-4 py-1">
                     <h1 class="text-xl font-bold text-white tracking-wide">SINODONTO / AC</h1>
                     <p class="text-[10px] text-slate-400 uppercase tracking-widest font-semibold mt-0.5">Painel em Tempo Real (Banco de Dados)</p>
@@ -86,6 +67,10 @@
                 <button onclick="exportarBackupJSON()" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2.5 rounded-xl border border-emerald-500/30 transition shadow-lg active:scale-95 uppercase tracking-wider">
                     💾 Salvar Backup (.JSON)
                 </button>
+                <label class="bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-bold px-4 py-2.5 rounded-xl border border-slate-700 transition shadow-lg cursor-pointer text-center active:scale-95 uppercase tracking-wider">
+                    📂 Abrir Arquivo Local
+                    <input type="file" id="importFile" accept=".json" class="hidden" onchange="importarEEnviarParaNuvem(event)">
+                </label>
             </div>
 
         </div>
@@ -146,7 +131,6 @@
     </main>
 
     <script>
-        // CONFIGURAÇÃO OFICIAL DO SEU SUPABASE INTEGRADA
         const SUPABASE_URL = "https://hplbefhrlxwiznncvglj.supabase.co";
         const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhwbGJlZmhybHh3aXpubmN2Z2xqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI0MDg3ODksImV4cCI6MjA5Nzk4NDc4OX0.cAqD3vNc9FqWC4OxoHw5DRJJr26N1QCVpkaUV6jezjQ";
 
@@ -160,7 +144,6 @@
         function abrirFormulario() { document.getElementById('formulario-cadastro').classList.remove('hidden'); }
         function fecharFormulario() { document.getElementById('formulario-cadastro').classList.add('hidden'); document.getElementById('formParceiro').reset(); }
 
-        // Puxar dados em nuvem
         async function puxarDadosBanco() {
             try {
                 const response = await fetch(`${SUPABASE_URL}/rest/v1/parceiros?select=*`, {
@@ -207,8 +190,42 @@
                     body: JSON.stringify(corpoData)
                 });
                 fecharFormulario();
-                puxarDadosBanco(); // Recarrega instantaneamente na tela
+                puxarDadosBanco();
             } catch { alert("Erro ao salvar dados online."); }
+        }
+
+        // FUNÇÃO DE CARGA INTELIGENTE EM MASSA PARA O USUÁRIO LEIGO
+        async function importarEEnviarParaNuvem(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = async function(e) {
+                try {
+                    const dados = JSON.parse(e.target.result);
+                    const arrayParceiros = dados.parceiros || dados;
+                    
+                    if (Array.isArray(arrayParceiros) && arrayParceiros.length > 0) {
+                        document.getElementById('lista-dinamica-parceiros').innerHTML = `<p class="text-center text-amber-400 animate-pulse text-lg">Subindo ${arrayParceiros.length} parceiros para a nuvem de forma definitiva...</p>`;
+                        
+                        // Envia lote por lote limpando campos id antigos de controle interno
+                        for (let p of arrayParceiros) {
+                            const limpo = {
+                                cidade: p.cidade, categoria: p.categoria, nome: p.nome,
+                                logo: p.logo || '', tag_desconto: p.tag_desconto || p.desconto || 'Desconto',
+                                beneficio: p.beneficio || p.detalhes, endereco: p.endereco, telefone: p.telefone
+                            };
+                            await fetch(`${SUPABASE_URL}/rest/v1/parceiros`, {
+                                method: 'POST',
+                                headers: { "apikey": SUPABASE_KEY, "Authorization": `Bearer ${SUPABASE_KEY}`, "Content-Type": "application/json" },
+                                body: JSON.stringify(limpo)
+                            });
+                        }
+                        alert("Todos os parceiros antigos foram migrados para a Nuvem com sucesso!");
+                        puxarDadosBanco();
+                    }
+                } catch { alert("Arquivo inválido."); puxarDadosBanco(); }
+            };
+            reader.readAsText(file);
         }
 
         async function deletarParceiro(id) {
@@ -244,7 +261,6 @@
                 return;
             }
 
-            // Ordenação alfabética das cidades e categorias para manter o acabamento fino
             const locais = {};
             dados.sort((a, b) => a.nome.localeCompare(b.nome)).forEach(item => {
                 if (!locais[item.cidade]) locais[item.cidade] = {};
