@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Parceiros - SINODONTO/AC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+                /*
+                        Explicação (PT-BR):
+                        A propriedade CSS `background-clip` controla até onde o fundo (background)
+                        de um elemento se estende: `border-box`, `padding-box` ou `content-box`.
+                        Para efeito em texto (texto com gradiente) alguns navegadores exigem
+                        o prefixo `-webkit-` e também a propriedade `-webkit-text-fill-color: transparent`.
+
+                        Boas práticas de compatibilidade:
+                        - Declare primeiro a versão com prefixo (`-webkit-...`) quando precisar
+                            suportar navegadores WebKit antigos.
+                        - Depois declare a propriedade padrão (`background-clip`) para navegadores
+                            que seguem o padrão.
+                        Observação: `background-clip: text` não tem suporte completo em todos os
+                        navegadores (é historicamente implementado como `-webkit-background-clip: text`).
+                */
+                @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+                body { font-family: 'Inter', sans-serif; }
+                .gold-gradient-text {
+                        background: linear-gradient(135deg, #E5BA73 0%, #C5A880 50%, #957855 100%);
+                        -webkit-background-clip: text; /* compatibilidade WebKit antigo */
+                        background-clip: text;       /* propriedade padrão (quando suportada) */
+                        -webkit-text-fill-color: transparent; /* necessário para mostrar o gradiente no texto */
+                }
+        
+        /* Oculta barras de rolagem nativas mantendo a rolagem ativa */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #070B19; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 3px; }
+
+        @media print {
+            @page { size: portrait; margin: 1.2cm; }
+            body { background: #ffffff !important; color: #000000 !important; font-size: 11px !important; }
+            .no-print { display: none !important; }
+            .page-break-section { page-break-inside: auto !important; }
+            .page-break-card { page-break-inside: avoid !important; }
+            .print-grid { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 12px !important; }
+            .card-premium { border: 1px solid #cbd5e1 !important; background: #ffffff !important; color: #000000 !important; box-shadow: none !important; padding: 12px !important; }
+            .text-white { color: #000000 !important; }
+            .text-slate-300 { color: #1e293b !important; }
+            .text-slate-400 { color: #475569 !important; }
+            h3 { font-size: 18px !important; color: #000000 !important; border-bottom: 2px solid #000000 !important; margin-top: 15px !important; }
+            h4 { font-size: 13px !important; color: #b45309 !important; margin-top: 10px !important; }
+            h5 { font-size: 13px !important; color: #000000 !important; }
+        }
+    </style>
+</head>
+<body class="bg-[#070B19] text-slate-200 min-h-screen antialiased selection:bg-amber-500/20">
+
+    <div class="hidden print:flex flex-row justify-between items-center border-b-2 border-amber-600 pb-3 mb-6 w-full">
+        <div class="flex items-center gap-4">
+            <img src="logo sinodonto.png" alt="Logo SINODONTO" class="h-12 w-auto object-contain">
+            <div>
+                <h1 class="text-lg font-bold text-black tracking-wide">SINODONTO / AC</h1>
+                <p class="text-[10px] text-slate-600 uppercase tracking-widest font-medium">Clube de Benefícios Corporativos</p>
+            </div>
+        </div>
+        <span id="print-data" class="text-xs text-slate-600 font-medium"></span>
+    </div>
+
+    <header class="no-print border-b border-slate-800/60 bg-[#070B19]/80 backdrop-blur-xl sticky top-0 z-50 py-4 shadow-2xl">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row justify-between items-center gap-6">
+            
+            <div class="flex items-center gap-4">
+                <img src="logo sinodonto.png" alt="Logo SINODONTO" class="h-14 w-auto object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
+                <div class="border-l border-slate-800 pl-4 py-1">
+                    <h1 class="text-xl font-bold text-white tracking-wide">SINODONTO / AC</h1>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-widest font-semibold mt-0.5">Painel em Tempo Real (Banco de Dados)</p>
+                </div>
+            </div>
+            
+            <div class="flex flex-wrap gap-2.5 justify-center items-center">
+                <button onclick="abrirFormulario()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold px-4 py-2.5 rounded-xl transition shadow-lg active:scale-95 uppercase tracking-wider">
+                    ➕ Novo Parceiro
+                </button>
+                <button onclick="gerarPDF()" class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold px-4 py-2.5 rounded-xl border border-blue-500/30 transition shadow-lg active:scale-95 uppercase tracking-wider">
+                    📄 Exportar PDF
+                </button>
+                <button onclick="exportarBackupJSON()" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2.5 rounded-xl border border-emerald-500/30 transition shadow-lg active:scale-95 uppercase tracking-wider">
+                    💾 Salvar Backup (.JSON)
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-10">
+        
+        <div id="formulario-cadastro" class="hidden no-print bg-[#0F1524] border border-slate-800 rounded-2xl p-6 mb-12 max-w-xl mx-auto shadow-2xl backdrop-blur-md">
+            <h3 class="text-base font-bold text-white mb-5 border-b border-slate-800 pb-2 uppercase tracking-wider text-xs text-amber-400">📝 Cadastro de Convênio</h3>
+            <form id="formParceiro" onsubmit="salvarParceiro(event)" class="space-y-4">
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Cidade *</label>
+                        <input type="text" id="pCidade" placeholder="Ex: Rio Branco" required class="w-full bg-[#070B19] border border-slate-800 rounded-xl px-3 py-2.5 text-sm text-white focus:border-amber-500/60 focus:outline-none transition">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Categoria *</label>
+                        <input type="text" id="pCategoria" placeholder="Ex: Academias" required class="w-full bg-[#070B19] border border-slate-800 rounded-xl px-3 py-2.5 text-sm text-white focus:border-amber-500/60 focus:outline-none transition">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Nome da Empresa *</label>
+                    <input type="text" id="pNome" placeholder="Ex: COLISEU Academia" required class="w-full bg-[#070B19] border border-slate-800 rounded-xl px-3 py-2.5 text-sm text-white focus:border-amber-500/60 focus:outline-none transition">
+                </div>
+                <div>
+                    <label class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Logo do Parceiro (Opcional)</label>
+                    <input type="file" id="pLogoFile" accept="image/*" class="w-full bg-[#070B19] border border-slate-800 rounded-xl px-2 py-2 text-xs text-slate-400 file:mr-3 file:py-1 file:px-2.5 file:rounded-md file:bg-slate-800 file:text-white file:border-0 hover:file:bg-slate-700 transition">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Texto de Desconto Curto *</label>
+                        <input type="text" id="pDesconto" placeholder="Ex: 15% OFF" required class="w-full bg-[#070B19] border border-slate-800 rounded-xl px-3 py-2.5 text-sm text-white focus:border-amber-500/60 focus:outline-none transition">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Telefone / Contato</label>
+                        <input type="text" id="pTelefone" placeholder="Ex: 68 2102-5573" class="w-full bg-[#070B19] border border-slate-800 rounded-xl px-3 py-2.5 text-sm text-white focus:border-amber-500/60 focus:outline-none transition">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Endereço Completo</label>
+                    <input type="text" id="pEndereco" placeholder="Ex: Rua Jambo, 76" class="w-full bg-[#070B19] border border-slate-800 rounded-xl px-3 py-2.5 text-sm text-white focus:border-amber-500/60 focus:outline-none transition">
+                </div>
+                <div>
+                    <label class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Regras Completas do Benefício *</label>
+                    <textarea id="pBeneficio" rows="3" placeholder="Detalhes do desconto..." required class="w-full bg-[#070B19] border border-slate-800 rounded-xl px-3 py-2.5 text-sm text-white focus:border-amber-500/60 focus:outline-none transition"></textarea>
+                </div>
+                <div class="flex justify-end gap-2.5 pt-2">
+                    <button type="button" onclick="fecharFormulario()" class="bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded-xl text-xs font-bold transition">CANCELAR</button>
+                    <button type="submit" class="bg-amber-600 hover:bg-amber-500 text-white px-5 py-2 rounded-xl text-xs font-bold transition">SALVAR ONLINE</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="lista-dinamica-parceiros" class="space-y-12">
+            <p class="text-center text-slate-500 animate-pulse text-lg">Conectando ao banco de dados em nuvem...</p>
+        </div>
+        
+    </main>
+
+    <script>
+        // CONFIGURAÇÃO OFICIAL DO SEU SUPABASE INTEGRADA
+        const SUPABASE_URL = "https://hplbefhrlxwiznncvglj.supabase.co";
+        const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhwbGJlZmhybHh3aXpubmN2Z2xqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI0MDg3ODksImV4cCI6MjA5Nzk4NDc4OX0.cAqD3vNc9FqWC4OxoHw5DRJJr26N1QCVpkaUV6jezjQ";
+
+        let listaParceirosGlobal = [];
+
+        window.onload = function() {
+            document.getElementById('print-data').innerText = `Atualizado em: ${new Date().toLocaleDateString('pt-BR')}`;
+            puxarDadosBanco();
+        };
+
+        function abrirFormulario() { document.getElementById('formulario-cadastro').classList.remove('hidden'); }
+        function fecharFormulario() { document.getElementById('formulario-cadastro').classList.add('hidden'); document.getElementById('formParceiro').reset(); }
+
+        // Puxar dados em nuvem
+        async function puxarDadosBanco() {
+            try {
+                const response = await fetch(`${SUPABASE_URL}/rest/v1/parceiros?select=*`, {
+                    headers: { "apikey": SUPABASE_KEY, "Authorization": `Bearer ${SUPABASE_KEY}` }
+                });
+                listaParceirosGlobal = await response.json();
+                renderizarTela(listaParceirosGlobal);
+            } catch (err) {
+                document.getElementById('lista-dinamica-parceiros').innerHTML = '<p class="text-center text-red-400">Falha na conexão com o banco de dados remoto.</p>';
+            }
+        }
+
+        function salvarParceiro(e) {
+            e.preventDefault();
+            const file = document.getElementById('pLogoFile').files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) { enviarParaNuvem(event.target.result); };
+                reader.readAsDataURL(file);
+            } else { enviarParaNuvem(''); }
+        }
+
+        async function enviarParaNuvem(logoBase64) {
+            const corpoData = {
+                cidade: document.getElementById('pCidade').value.trim(),
+                categoria: document.getElementById('pCategoria').value.trim(),
+                nome: document.getElementById('pNome').value.trim(),
+                logo: logoBase64,
+                tag_desconto: document.getElementById('pDesconto').value.trim(),
+                beneficio: document.getElementById('pBeneficio').value.trim(),
+                endereco: document.getElementById('pEndereco').value.trim() || 'Não informado',
+                telefone: document.getElementById('pTelefone').value.trim() || 'Não informado'
+            };
+
+            try {
+                await fetch(`${SUPABASE_URL}/rest/v1/parceiros`, {
+                    method: 'POST',
+                    headers: { 
+                        "apikey": SUPABASE_KEY, 
+                        "Authorization": `Bearer ${SUPABASE_KEY}`,
+                        "Content-Type": "application/json",
+                        "Prefer": "return=minimal"
+                    },
+                    body: JSON.stringify(corpoData)
+                });
+                fecharFormulario();
+                puxarDadosBanco(); // Recarrega instantaneamente na tela
+            } catch { alert("Erro ao salvar dados online."); }
+        }
+
+        async function deletarParceiro(id) {
+            if(!confirm("Deseja deletar este convênio permanentemente na nuvem para todos?")) return;
+            try {
+                await fetch(`${SUPABASE_URL}/rest/v1/parceiros?id=eq.${id}`, {
+                    method: 'DELETE',
+                    headers: { "apikey": SUPABASE_KEY, "Authorization": `Bearer ${SUPABASE_KEY}` }
+                });
+                puxarDadosBanco();
+            } catch { alert("Erro ao excluir parceiro online."); }
+        }
+
+        function gerarPDF() { window.print(); }
+
+        function exportarBackupJSON() {
+            const backup = { dataAtualizacao: new Date().toLocaleDateString('pt-BR'), parceiros: listaParceirosGlobal };
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(backup, null, 2));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href", dataStr);
+            downloadAnchor.setAttribute("download", `LISTA_DE_PARCEIROS_NUVEM.json`);
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+        }
+
+        function renderizarTela(dados) {
+            const container = document.getElementById('lista-dinamica-parceiros');
+            container.innerHTML = '';
+
+            if (!dados || dados.length === 0) {
+                container.innerHTML = '<p class="text-center text-slate-500 py-12 text-lg font-medium">Nenhum parceiro carregado no banco de dados.</p>';
+                return;
+            }
+
+            // Ordenação alfabética das cidades e categorias para manter o acabamento fino
+            const locais = {};
+            dados.sort((a, b) => a.nome.localeCompare(b.nome)).forEach(item => {
+                if (!locais[item.cidade]) locais[item.cidade] = {};
+                if (!locais[item.cidade][item.categoria]) locais[item.cidade][item.categoria] = [];
+                locais[item.cidade][item.categoria].push(item);
+            });
+
+            for (const cidade in locais) {
+                let htmlCidade = `
+                    <section class="page-break-section">
+                        <div class="flex items-center gap-3 mb-5 border-b border-slate-800/60 print:border-black pb-2">
+                            <h3 class="text-2xl font-bold text-white print:text-black tracking-wide">🏙️ ${cidade}</h3>
+                        </div>
+                `;
+
+                for (const categoria in locais[cidade]) {
+                    htmlCidade += `
+                        <div class="mb-6 page-break-section">
+                            <h4 class="text-xs font-bold text-amber-500/80 print:text-amber-800 mb-3.5 tracking-widest uppercase">
+                                ✦ ${categoria}
+                            </h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 print-grid gap-5">
+                    `;
+
+                    locais[cidade][categoria].forEach(p => {
+                        const logoHTML = p.logo 
+                            ? `<img src="${p.logo}" alt="Logo" class="h-11 w-11 rounded-xl object-contain bg-white border border-slate-200/10 p-1 flex-shrink-0">`
+                            : `<div class="h-11 w-11 rounded-xl bg-slate-800/80 print:bg-slate-100 flex items-center justify-center font-bold text-xs text-slate-400 print:text-slate-500 flex-shrink-0 border border-slate-700/30">💼</div>`;
+
+                        htmlCidade += `
+                            <div class="card-premium page-break-card bg-[#0F1524]/40 border border-slate-800/80 rounded-2xl p-5 flex flex-col justify-between relative group hover:border-slate-700 transition-all duration-300 shadow-xl backdrop-blur-sm">
+                                <button onclick="deletarParceiro(${p.id})" class="no-print absolute top-3 right-3 text-slate-500 hover:text-red-400 text-[10px] font-bold bg-slate-900/60 hover:bg-red-500/10 px-2 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-200">
+                                    🗑️ Excluir
+                                </button>
+                                <div>
+                                    <div class="flex items-center gap-3.5 mb-3.5">
+                                        ${logoHTML}
+                                        <div class="flex-1 min-w-0">
+                                            <h5 class="font-semibold text-white print:text-black text-base lg:text-lg leading-tight truncate tracking-wide">${p.nome}</h5>
+                                            <span class="tag-beneficio inline-block bg-emerald-500/5 text-emerald-400 print:text-emerald-700 text-[11px] font-bold px-2 py-0.5 rounded-lg border border-emerald-500/20 mt-1">${p.tag_desconto}</span>
+                                        </div>
+                                    </div>
+                                    <p class="texto-descricao text-base text-slate-300 print:text-slate-800 leading-relaxed mb-4">${p.beneficio}</p>
+                                </div>
+                                <div class="texto-rodape border-t border-slate-800/60 print:border-slate-200 pt-3 text-xs text-slate-400 print:text-slate-600 space-y-1 font-medium">
+                                    <p class="truncate">📍 ${p.endereco}</p>
+                                    <p>📞 ${p.telefone}</p>
+                                </div>
+                            </div>
+                        `;
+                    });
+
+                    htmlCidade += `</div></div>`;
+                }
+                htmlCidade += `</section>`;
+                container.innerHTML += htmlCidade;
+            }
+        }
+    </script>
+</body>
+</html>
