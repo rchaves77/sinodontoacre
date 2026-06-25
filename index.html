@@ -35,7 +35,7 @@
 
     <div class="hidden print:flex flex-row justify-between items-center border-b-2 border-amber-600 pb-3 mb-6 w-full">
         <div class="flex items-center gap-4">
-            <div class="h-10 w-10 rounded-xl bg-amber-600 flex items-center justify-center font-bold text-white text-base">SD</div>
+            <img src="logo sinodonto.png" alt="Logo SINODONTO" class="h-12 w-auto object-contain">
             <div>
                 <h1 class="text-lg font-bold text-black tracking-wide">SINODONTO / AC</h1>
                 <p class="text-[10px] text-slate-600 uppercase tracking-widest font-medium">Clube de Benefícios Corporativos</p>
@@ -48,9 +48,7 @@
         <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row justify-between items-center gap-6">
             
             <div class="flex items-center gap-4">
-                <div class="h-12 w-12 rounded-xl bg-gradient-to-tr from-amber-500 to-amber-700 p-0.5 shadow-lg flex-shrink-0">
-                    <div class="w-full h-full bg-[#070B19] rounded-[10px] flex items-center justify-center font-black text-amber-400 text-lg">SD</div>
-                </div>
+                <img src="logo sinodonto.png" alt="Logo SINODONTO" class="h-14 w-auto object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
                 <div class="border-l border-slate-800 pl-4 py-1">
                     <h1 class="text-xl font-bold text-white tracking-wide">SINODONTO / AC</h1>
                     <p class="text-[10px] text-slate-400 uppercase tracking-widest font-semibold mt-0.5">Painel em Tempo Real (Banco de Dados)</p>
@@ -194,7 +192,6 @@
             } catch { alert("Erro ao salvar dados online."); }
         }
 
-        // FUNÇÃO DE CARGA INTELIGENTE EM MASSA PARA O USUÁRIO LEIGO
         async function importarEEnviarParaNuvem(event) {
             const file = event.target.files[0];
             if (!file) return;
@@ -207,7 +204,6 @@
                     if (Array.isArray(arrayParceiros) && arrayParceiros.length > 0) {
                         document.getElementById('lista-dinamica-parceiros').innerHTML = `<p class="text-center text-amber-400 animate-pulse text-lg">Subindo ${arrayParceiros.length} parceiros para a nuvem de forma definitiva...</p>`;
                         
-                        // Envia lote por lote limpando campos id antigos de controle interno
                         for (let p of arrayParceiros) {
                             const limpo = {
                                 cidade: p.cidade, categoria: p.categoria, nome: p.nome,
@@ -220,7 +216,7 @@
                                 body: JSON.stringify(limpo)
                             });
                         }
-                        alert("Todos os parceiros antigos foram migrados para a Nuvem com sucesso!");
+                        alert("Migração concluída com sucesso!");
                         puxarDadosBanco();
                     }
                 } catch { alert("Arquivo inválido."); puxarDadosBanco(); }
