@@ -1,0 +1,53 @@
+Aqui está a estrutura JSON atualizada, integrando as informações extraídas diretamente da imagem do **Club Serclin**:
+
+```json
+{
+  "identidade_visual": {
+    "paleta_cores": ["Azul escuro", "Branco", "Dourado/Amarelo", "Verde claro (Recorrência)"],
+    "elementos_graficos": [
+      "Ícone de usuário (Titular + 1 Dependente)",
+      "Ícone de calendário (Sessões mensais)",
+      "Ícone de verificação/check (Condições reduzidas)",
+      "Ícone de escudo com ponto de exclamação (Regras claras)",
+      "Selo verde escrito 'RECORRÊNCIA'",
+      "Botão de chamada para ação (CTA) 'ASSINAR ->' com seta"
+    ],
+    "imagem_fundo": "Fundo azul escuro sólido com a inscrição 'SERCLIN' em marca d'água sutil"
+  },
+  "marcas_e_parcerias": {
+    "empresa_principal": {
+      "nome": "Club Serclin",
+      "slogan": "Protocolo de Benefícios"
+    }
+  },
+  "conteudo_textual": {
+    "titulo_principal": "O QUE VOCÊ recebe",
+    "descricao_institucional": "Acolhimento humanizado e estrutura particular ao alcance da sua família em Rio Branco por um modelo de assinatura mensal recorrente.",
+    "vantagens_inclusas": {
+      "titular_e_dependente": {
+        "titulo": "TITULAR + 1 DEPENDENTE",
+        "detalhes": "Cobertura direta inclusa para cônjuge ou filho sem cobrança adicional."
+      },
+      "sessoes_mensais": {
+        "titulo": "04 SESSÕES MENSAIS",
+        "detalhes": "Atendimentos individuais de psicoterapia de 40 minutos por mês."
+      },
+      "condicoes_reduzidas": {
+        "titulo": "CONDIÇÕES REDUZIDAS",
+        "detalhes": "Acesso direto a valores exclusivos para Psiquiatria e Neuropsicologia."
+      },
+      "regras_claras": {
+        "titulo": "REGRAS CLARAS",
+        "detalhes": "Liberação médica imediata e 30 dias de carência para terapias."
+      }
+    },
+    "valores_e_assinatura": {
+      "preco": "R$ 127,90 /mês",
+      "condicao_pagamento": "Sem burocracia. Desconto mensal na função assinatura sem ocupar o limite total."
+    },
+    "chamada_para_acao": "CONSULTAR TABELA DE VALORES VIA WHATSAPP"
+  },
+  "objetivo_da_postagem": "Apresentar as vantagens inclusas, o modelo de atendimento e o preço da assinatura mensal recorrente do Club Serclin em Rio Branco."
+}
+
+```

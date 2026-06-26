@@ -3,22 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SINODONTO/AC — Guia de Convênios</title>
+    <title>Guia de Convênios — SINODONTO/AC</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-    body { 
-        font-family: 'Inter', sans-serif; 
-        background-color: #f8fafc; 
-        color: #334155; 
-    }
-
+    body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
+    
     .glass-header {
         background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(12px);
         border-bottom: 3px solid #941b1b;
     }
 
+    /* Card na Web */
     .card-partner {
         background: #ffffff;
         border: 1px solid #e2e8f0;
@@ -26,185 +23,131 @@
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
     }
 
-    .card-partner:hover {
-        border-color: #941b1b;
-        transform: translateY(-5px);
-        box-shadow: 0 20px 25px -5px rgba(148, 27, 27, 0.1);
-    }
-
     .badge-discount {
         background: #941b1b;
         color: #ffffff;
         font-weight: 800;
-        font-size: 0.8rem;
-        padding: 5px 12px;
-        border-radius: 8px;
+        font-size: 0.75rem;
+        padding: 4px 10px;
+        border-radius: 6px;
         text-transform: uppercase;
     }
 
     .text-accent { color: #941b1b; }
-    .bg-accent { background-color: #941b1b; }
 
-    /* --- CONFIGURAÇÃO DE IMPRESSÃO COMPACTA (ECONOMIA DE PAPEL) --- */
+    /* --- AJUSTE DE IMPRESSÃO PROFISSIONAL (PROPORCIONAL) --- */
     @media print {
-        @page {
-            size: portrait;
-            margin: 0.8cm;
-        }
-
+        @page { size: portrait; margin: 0.8cm; }
         .no-print { display: none !important; }
-        
-        body { background-color: white !important; font-size: 10px !important; }
+        body { background-color: white !important; font-size: 10pt !important; }
 
-        /* Transforma em Grade de 3 Colunas para economizar páginas */
+        .print-banner { display: flex !important; justify-content: space-between; align-items: center; border-bottom: 2px solid #941b1b; padding-bottom: 10px; margin-bottom: 15px; }
+
+        /* Grid de 2 Colunas Limpo */
         .print-grid { 
             display: grid !important; 
-            grid-template-columns: repeat(3, 1fr) !important; 
-            gap: 8px !important; 
-            width: 100% !important;
+            grid-template-columns: 1fr 1fr !important; 
+            gap: 10px 20px !important; 
         }
 
-        /* Card versão ultra compacta para papel */
         .card-partner { 
-            border: 1px solid #e2e8f0 !important; 
-            background: white !important; 
-            padding: 8px !important; 
-            margin: 0 !important;
-            border-radius: 5px !important;
-            break-inside: avoid; /* Não quebra um card no meio da página */
+            border: none !important;
+            border-bottom: 1px solid #f1f5f9 !important;
+            padding: 8px 0 !important; 
+            border-radius: 0 !important;
             box-shadow: none !important;
-            display: block !important;
+            break-inside: avoid;
         }
 
-        /* Ajuste de textos na impressão */
-        .card-partner h4 { font-size: 11px !important; margin-bottom: 2px !important; color: black !important; }
-        .card-partner p { font-size: 9px !important; line-height: 1.2 !important; margin-bottom: 4px !important; }
+        /* Títulos Proporcionais */
+        .card-partner h4 { font-size: 11pt !important; font-weight: 800 !important; color: #000 !important; margin-bottom: 2px !important; text-transform: uppercase; }
+        .card-partner p.beneficio-txt { font-size: 8.5pt !important; line-height: 1.2 !important; margin-bottom: 5px !important; color: #444 !important; }
         
-        /* Ajuste de Logo na impressão */
-        .card-partner img { width: 30px !important; height: 30px !important; object-fit: contain !important; }
-        .card-partner .w-16 { width: 30px !important; height: 30px !important; }
-
-        /* Badge de desconto discreto */
-        .badge-discount { 
-            background: #eee !important; 
-            color: black !important; 
-            border: 1px solid #ccc !important;
-            font-size: 8px !important;
-            padding: 1px 4px !important;
+        /* Contatos: REMOVIDO o tamanho gigante e o sublinhado */
+        .card-partner .info-contato { 
+            font-size: 9pt !important; 
+            font-weight: 600 !important; 
+            color: #1e293b !important;
+            text-decoration: none !important; /* Remove o sublinhado no PDF */
+            margin-top: 2px !important;
         }
 
-        /* Cabeçalhos de Cidades e Categorias mais baixos */
-        .cid-group h2 { font-size: 16px !important; margin-top: 15px !important; margin-bottom: 5px !important; }
-        .mb-14 { margin-bottom: 10px !important; }
-        h3.text-accent { font-size: 9px !important; margin-bottom: 5px !important; }
+        .logo-container { display: none !important; }
 
-        /* Links em preto para leitura fácil */
-        .clickable-link { color: black !important; font-weight: bold !important; font-size: 9px !important; }
-        .text-accent { color: black !important; }
+        .badge-discount { 
+            background: #f8fafc !important; 
+            color: #941b1b !important; 
+            border: 1px solid #941b1b !important;
+            font-size: 7.5pt !important;
+            padding: 1px 4px !important;
+            float: right;
+        }
+
+        .cid-group h2 { font-size: 14pt !important; font-weight: 900 !important; margin-top: 20px !important; border-bottom: 1.5px solid #000 !important; }
+        h3.text-accent { font-size: 9pt !important; margin: 8px 0 4px 0 !important; border:none !important; }
+
+        /* Links clicáveis mas discretos no PDF */
+        .clickable-link { text-decoration: none !important; color: #1e293b !important; }
+        .clickable-link:hover { color: #941b1b !important; }
     }
 </style>
 </head>
 <body class="antialiased">
 
-    <!-- Header -->
+    <!-- Cabeçalho PDF -->
+    <div class="hidden print:flex print-banner">
+        <img src="https://hplbefhrlxwiznncvglj.supabase.co/storage/v1/object/public/logos/1782511945706-jud6h.png" class="h-10">
+        <div class="text-right">
+            <h1 class="text-lg font-black text-red-900 uppercase italic">Guia de Convênios Sinodonto/AC</h1>
+            <p class="text-[9px] font-bold text-slate-500 uppercase tracking-widest">Links ativos: Toque no telefone ou endereço</p>
+        </div>
+    </div>
+
+    <!-- Header Site -->
     <header class="no-print sticky top-0 z-50 glass-header">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-4">
-                <!-- Logotipo Sinodonto -->
-                <img src="https://hplbefhrlxwiznncvglj.supabase.co/storage/v1/object/public/logos/1782511945706-jud6h.png" alt="Sinodonto AC" class="h-16 w-auto object-contain">
-            </div>
-
+            <img src="https://hplbefhrlxwiznncvglj.supabase.co/storage/v1/object/public/logos/1782511945706-jud6h.png" alt="Sinodonto AC" class="h-16 w-auto object-contain">
             <div class="flex gap-4">
-                <button onclick="toggleModal('modal-add')" class="text-slate-600 hover:text-red-800 text-xs font-black uppercase tracking-widest transition-all">
-                    + Adicionar Convênio
-                </button>
-                <button onclick="window.print()" class="bg-red-900 text-white text-xs font-black px-6 py-3 rounded-xl hover:bg-red-800 transition-all shadow-lg uppercase tracking-wider">
-                    Gerar PDF / Imprimir
-                </button>
+                <button onclick="toggleModal('modal-add')" class="text-slate-600 hover:text-red-800 text-xs font-bold uppercase tracking-widest transition-all">+ Adicionar</button>
+                <button onclick="window.print()" class="bg-red-900 text-white text-xs font-black px-6 py-3 rounded-xl hover:bg-red-800 shadow-lg uppercase italic tracking-wider">Gerar Guia PDF</button>
             </div>
         </div>
     </header>
 
     <main class="max-w-7xl mx-auto px-6 py-12">
-        
-        <!-- Intro e Busca -->
         <div class="no-print mb-12">
-            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
-                <div>
-                    <h2 class="text-slate-900 text-4xl font-black tracking-tighter mb-2 italic uppercase">Clube de Benefícios</h2>
-                    <p class="text-slate-500 text-lg font-medium">O guia definitivo de parcerias para associados SINODONTO/AC.</p>
-                </div>
-                <div class="relative w-full md:w-96">
-                    <input type="text" id="inputBusca" onkeyup="filtrar()" placeholder="O que você procura?" 
-                        class="w-full bg-white border-2 border-slate-200 rounded-2xl px-6 py-4 text-slate-800 placeholder-slate-400 focus:border-red-800 outline-none transition-all shadow-sm">
-                    <div id="stat-count" class="absolute right-6 top-5 text-[10px] font-black text-slate-400 uppercase tracking-widest">
-                        0 cadastrados
-                    </div>
-                </div>
+            <h2 class="text-slate-900 text-5xl font-black tracking-tighter mb-2 italic uppercase">Clube de Benefícios</h2>
+            <p class="text-slate-500 text-xl font-medium mb-8">Parcerias exclusivas para associados SINODONTO/AC.</p>
+            <div class="relative max-w-xl">
+                <input type="text" id="inputBusca" onkeyup="filtrar()" placeholder="Pesquisar..." class="w-full bg-white border-2 border-slate-200 rounded-2xl px-6 py-4 outline-none focus:border-red-900 shadow-sm">
+                <div id="stat-count" class="absolute right-6 top-5 text-[10px] font-black text-slate-400 uppercase">0 cadastrados</div>
             </div>
         </div>
 
-        <!-- Área de Listagem -->
-        <div id="lista-parceiros" class="space-y-20">
-            <div class="flex flex-col items-center py-20">
-                <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-red-900 mb-4"></div>
-                <p class="text-slate-400 font-bold uppercase tracking-widest text-xs italic">Sincronizando Banco de Dados...</p>
-            </div>
+        <div id="lista-parceiros" class="space-y-16">
+            <!-- Loader -->
+            <div class="text-center py-20 animate-pulse font-bold text-slate-400 uppercase text-xs tracking-widest italic">Sincronizando Banco de Dados...</div>
         </div>
     </main>
 
-    <!-- Modal de Cadastro -->
+    <!-- Modal Cadastro -->
     <div id="modal-add" class="fixed inset-0 z-[100] hidden bg-slate-900/80 backdrop-blur-md flex items-center justify-center p-4 no-print">
-        <div class="w-full max-w-xl bg-white rounded-[2.5rem] shadow-2xl p-8 border border-slate-100 overflow-y-auto max-h-[90vh]">
+        <div class="w-full max-w-xl bg-white rounded-[2.5rem] shadow-2xl p-8 max-h-[90vh] overflow-y-auto">
             <form id="formAdd" onsubmit="handleUploadESalvar(event)" class="space-y-5">
-                <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-slate-900 text-2xl font-black uppercase italic tracking-tighter">Novo Convênio</h2>
-                    <button type="button" onclick="toggleModal('modal-add')" class="text-slate-400 hover:text-red-900 text-3xl">✕</button>
-                </div>
-
+                <div class="flex justify-between items-center mb-4"><h2 class="text-2xl font-black italic uppercase">Novo Parceiro</h2><button type="button" onclick="toggleModal('modal-add')" class="text-3xl">✕</button></div>
                 <div class="grid grid-cols-2 gap-4">
-                    <div class="space-y-1">
-                        <label class="text-[10px] font-black text-slate-400 uppercase ml-1">Cidade</label>
-                        <input type="text" id="pCidade" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:border-red-800 outline-none">
-                    </div>
-                    <div class="space-y-1">
-                        <label class="text-[10px] font-black text-slate-400 uppercase ml-1">Categoria</label>
-                        <input type="text" id="pCategoria" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:border-red-800 outline-none">
-                    </div>
+                    <input type="text" id="pCidade" placeholder="Cidade" required class="bg-slate-50 border p-3 rounded-xl outline-none focus:border-red-900 text-sm">
+                    <input type="text" id="pCategoria" placeholder="Categoria" required class="bg-slate-50 border p-3 rounded-xl outline-none focus:border-red-900 text-sm">
                 </div>
-                
-                <div class="space-y-1">
-                    <label class="text-[10px] font-black text-slate-400 uppercase ml-1">Nome da Empresa / Parceiro</label>
-                    <input type="text" id="pNome" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:border-red-800 outline-none">
-                </div>
-
-                <div class="border-2 border-dashed border-slate-200 rounded-2xl p-6 text-center bg-slate-50">
-                    <input type="file" id="pLogoFile" accept="image/*" class="text-xs text-slate-500 mx-auto">
-                    <p class="text-[9px] text-slate-400 mt-2 uppercase font-black tracking-widest">Logo (PNG ou JPG)</p>
-                </div>
-
+                <input type="text" id="pNome" placeholder="Nome da Empresa" required class="w-full bg-slate-50 border p-3 rounded-xl focus:border-red-900 text-sm">
+                <div class="border-2 border-dashed border-slate-200 p-4 rounded-xl text-center"><input type="file" id="pLogoFile" accept="image/*" class="text-xs"></div>
                 <div class="grid grid-cols-2 gap-4">
-                    <div class="space-y-1">
-                        <label class="text-[10px] font-black text-slate-400 uppercase ml-1">Tag de Desconto</label>
-                        <input type="text" id="pDesconto" placeholder="Ex: 15% OFF" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:border-red-800 outline-none">
-                    </div>
-                    <div class="space-y-1">
-                        <label class="text-[10px] font-black text-slate-400 uppercase ml-1">Telefone / WhatsApp</label>
-                        <input type="text" id="pTelefone" placeholder="68 99999-9999" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:border-red-800 outline-none">
-                    </div>
+                    <input type="text" id="pDesconto" placeholder="Ex: 15% OFF" required class="bg-slate-50 border p-3 rounded-xl text-sm">
+                    <input type="text" id="pTelefone" placeholder="Telefone / WhatsApp" class="bg-slate-50 border p-3 rounded-xl text-sm">
                 </div>
-                
-                <div class="space-y-1">
-                    <label class="text-[10px] font-black text-slate-400 uppercase ml-1">Endereço para o Mapa</label>
-                    <input type="text" id="pEndereco" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:border-red-800 outline-none">
-                </div>
-
-                <div class="space-y-1">
-                    <label class="text-[10px] font-black text-slate-400 uppercase ml-1">Resumo das Regras / Benefício</label>
-                    <textarea id="pBeneficio" required rows="3" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:border-red-800 outline-none"></textarea>
-                </div>
-                
-                <button type="submit" id="btnSalvar" class="w-full bg-red-900 text-white font-black py-5 rounded-2xl hover:bg-red-800 transition-all uppercase text-xs tracking-widest shadow-xl shadow-red-900/20">Salvar Convênio no Guia</button>
+                <input type="text" id="pEndereco" placeholder="Endereço" class="w-full bg-slate-50 border p-3 rounded-xl text-sm">
+                <textarea id="pBeneficio" placeholder="Regras..." required rows="3" class="w-full bg-slate-50 border p-3 rounded-xl text-sm"></textarea>
+                <button type="submit" id="btnSalvar" class="w-full bg-red-900 text-white font-black py-4 rounded-xl uppercase shadow-xl">Salvar no Guia</button>
             </form>
         </div>
     </div>
@@ -215,65 +158,27 @@
         let DADOS_GLOBAIS = [];
 
         async function carregarDados() {
-            try {
-                const res = await fetch(`${SUPABASE_URL}/rest/v1/parceiros?select=*`, {
-                    headers: { "apikey": SUPABASE_KEY, "Authorization": `Bearer ${SUPABASE_KEY}` }
-                });
-                DADOS_GLOBAIS = await res.json();
-                render(DADOS_GLOBAIS);
-                document.getElementById('stat-count').innerText = `${DADOS_GLOBAIS.length} cadastrados`;
-            } catch (err) {
-                console.error("Erro ao carregar:", err);
-            }
+            const res = await fetch(`${SUPABASE_URL}/rest/v1/parceiros?select=*`, { headers: { "apikey": SUPABASE_KEY, "Authorization": `Bearer ${SUPABASE_KEY}` } });
+            DADOS_GLOBAIS = await res.json();
+            render(DADOS_GLOBAIS);
+            document.getElementById('stat-count').innerText = `${DADOS_GLOBAIS.length} cadastrados`;
         }
 
         async function handleUploadESalvar(e) {
-            e.preventDefault();
-            const btn = document.getElementById('btnSalvar');
-            btn.innerText = "SINCRONIZANDO...";
-            btn.disabled = true;
-            
-            const file = document.getElementById('pLogoFile').files[0];
-            let logoUrl = '';
-
+            e.preventDefault(); const btn = document.getElementById('btnSalvar'); btn.innerText = "PROCESSANDO..."; btn.disabled = true;
+            const file = document.getElementById('pLogoFile').files[0]; let logoUrl = '';
             if (file) {
                 const fileName = `${Date.now()}-${file.name}`;
-                const uploadRes = await fetch(`${SUPABASE_URL}/storage/v1/object/logos/${fileName}`, {
-                    method: 'POST',
-                    headers: { "apikey": SUPABASE_KEY, "Authorization": `Bearer ${SUPABASE_KEY}`, "Content-Type": file.type },
-                    body: file
-                });
+                const uploadRes = await fetch(`${SUPABASE_URL}/storage/v1/object/logos/${fileName}`, { method: 'POST', headers: { "apikey": SUPABASE_KEY, "Authorization": `Bearer ${SUPABASE_KEY}`, "Content-Type": file.type }, body: file });
                 if (uploadRes.ok) logoUrl = `${SUPABASE_URL}/storage/v1/object/public/logos/${fileName}`;
             }
-
-            const corpo = {
-                cidade: document.getElementById('pCidade').value,
-                categoria: document.getElementById('pCategoria').value,
-                nome: document.getElementById('pNome').value,
-                logo: logoUrl,
-                tag_desconto: document.getElementById('pDesconto').value,
-                beneficio: document.getElementById('pBeneficio').value,
-                endereco: document.getElementById('pEndereco').value,
-                telefone: document.getElementById('pTelefone').value
-            };
-
-            await fetch(`${SUPABASE_URL}/rest/v1/parceiros`, {
-                method: 'POST',
-                headers: { "apikey": SUPABASE_KEY, "Authorization": `Bearer ${SUPABASE_KEY}`, "Content-Type": "application/json" },
-                body: JSON.stringify(corpo)
-            });
-
-            toggleModal('modal-add');
-            document.getElementById('formAdd').reset();
-            btn.innerText = "Salvar Convênio no Guia";
-            btn.disabled = false;
-            carregarDados();
+            const corpo = { cidade: document.getElementById('pCidade').value, categoria: document.getElementById('pCategoria').value, nome: document.getElementById('pNome').value, logo: logoUrl, tag_desconto: document.getElementById('pDesconto').value, beneficio: document.getElementById('pBeneficio').value, endereco: document.getElementById('pEndereco').value, telefone: document.getElementById('pTelefone').value };
+            await fetch(`${SUPABASE_URL}/rest/v1/parceiros`, { method: 'POST', headers: { "apikey": SUPABASE_KEY, "Authorization": `Bearer ${SUPABASE_KEY}`, "Content-Type": "application/json" }, body: JSON.stringify(corpo) });
+            toggleModal('modal-add'); carregarDados(); btn.disabled = false; btn.innerText = "Salvar no Guia";
         }
 
         function render(dados) {
-            const container = document.getElementById('lista-parceiros');
-            container.innerHTML = '';
-
+            const container = document.getElementById('lista-parceiros'); container.innerHTML = '';
             const local = {};
             dados.sort((a,b) => a.nome.localeCompare(b.nome)).forEach(p => {
                 if(!local[p.cidade]) local[p.cidade] = {};
@@ -282,54 +187,36 @@
             });
 
             for (const cid in local) {
-                let html = `<div class="cid-group"><h2 class="text-slate-900 text-3xl font-black mb-8 flex items-center gap-6 italic tracking-tighter uppercase">${cid} <div class="h-[2px] flex-1 bg-slate-200"></div></h2>`;
+                let html = `<div class="cid-group"><h2 class="text-slate-900 text-3xl font-black mb-8 flex items-center gap-6 italic uppercase tracking-tighter">${cid} <div class="h-[2px] flex-1 bg-slate-200"></div></h2>`;
                 for (const cat in local[cid]) {
-                    html += `<div class="mb-14"><h3 class="text-accent text-xs font-black uppercase tracking-[0.4em] mb-6 flex items-center gap-3">✦ ${cat}</h3><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 print-grid gap-8">`;
+                    html += `<div class="mb-14"><h3 class="text-accent text-xs font-black uppercase tracking-[0.3em] mb-6 flex items-center gap-3">✦ ${cat}</h3><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 print-grid gap-8">`;
                     local[cid][cat].forEach(p => {
-                        
-                        // Lógica de Telefone Inteligente
-                        const rawPhone = p.telefone || '';
-                        const cleanPhone = rawPhone.replace(/\D/g, '');
-                        let phoneLink = '';
-                        
-                        // Celular/Zap (11 dígitos ou começa com 9)
-                        if (cleanPhone.length >= 11 || (cleanPhone.length === 9 && cleanPhone.startsWith('9'))) {
-                            phoneLink = `https://wa.me/55${cleanPhone}`;
-                        } else if (cleanPhone.length > 0) {
-                            phoneLink = `tel:+55${cleanPhone}`;
-                        }
-
-                        // Link Automático para Google Maps
-                        const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.nome + ' ' + p.endereco + ' ' + p.cidade)}`;
+                        const cleanPhone = (p.telefone || '').split(/[/,]/)[0].replace(/\D/g, '');
+                        let phoneLink = (cleanPhone.length >= 8) ? ((cleanPhone.length >= 10 && (cleanPhone[2] == '9' || cleanPhone[0] == '9')) ? `https://wa.me/55${cleanPhone}` : `tel:+55${cleanPhone}`) : '#';
+                        const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.nome + ' ' + (p.endereco || '') + ' ' + p.cidade)}`;
+                        const logoSrc = p.logo ? p.logo : `https://ui-avatars.com/api/?name=${encodeURIComponent(p.nome)}&background=f1f5f9&color=941b1b&size=128&font-size=0.35&bold=true`;
 
                         html += `
                         <div class="card-partner rounded-[2.5rem] p-8 flex flex-col justify-between group bg-white relative">
                             <div>
-                                <div class="flex justify-between items-start mb-6">
-                                    <div class="w-16 h-16 rounded-2xl bg-slate-50 flex items-center justify-center overflow-hidden border border-slate-100 shadow-sm">
-                                        ${p.logo ? `<img src="${p.logo}" class="w-full h-full object-contain p-1">` : `<span class="text-slate-200 text-[10px] font-black tracking-tighter">LOGO</span>`}
+                                <div class="flex justify-between items-start mb-6 no-print">
+                                    <div class="logo-container w-16 h-16 rounded-2xl bg-slate-50 flex items-center justify-center overflow-hidden border border-slate-100 shadow-sm">
+                                        <img src="${logoSrc}" class="w-full h-full object-contain p-1">
                                     </div>
                                     <span class="badge-discount">${p.tag_desconto}</span>
                                 </div>
-                                <h4 class="text-slate-900 font-bold text-xl mb-4 leading-tight tracking-tight">${p.nome}</h4>
-                                <p class="text-slate-500 text-sm leading-relaxed mb-8 font-medium italic italic">"${p.beneficio}"</p>
+                                <h4 class="text-slate-900 font-bold text-xl mb-4 leading-tight tracking-tight uppercase">${p.nome} <span class="hidden print:inline-block badge-discount ml-2">${p.tag_desconto}</span></h4>
+                                <p class="text-slate-500 text-sm leading-relaxed mb-8 font-medium italic beneficio-txt">"${p.beneficio}"</p>
                             </div>
-                            
-                            <div class="space-y-5 pt-6 border-t border-slate-50">
-                                <a href="${mapsLink}" target="_blank" class="clickable-link block group/link no-underline">
-                                    <p class="text-base text-slate-600 flex items-start gap-3">
-                                        <span class="text-accent text-xl">📍</span> 
-                                        <span class="leading-snug font-bold group-hover/link:text-red-900 transition-colors uppercase text-sm">${p.endereco || 'Consultar Unidade'}</span>
-                                    </p>
+                            <div class="space-y-4 pt-6 border-t border-slate-50">
+                                <a href="${mapsLink}" target="_blank" class="clickable-link block no-underline info-contato">
+                                    <span class="no-print">📍</span> ${p.endereco || 'Consultar Unidade'}
                                 </a>
-
                                 <div class="flex justify-between items-center">
-                                    <a href="${phoneLink}" target="_blank" class="clickable-link group/link no-underline">
-                                        <p class="text-xl text-slate-800 flex items-center gap-3 font-black tracking-tighter group-hover/link:text-red-900 transition-colors">
-                                            <span class="text-accent text-xl">📞</span> ${p.telefone || 'Sede/Sinodonto'}
-                                        </p>
+                                    <a href="${phoneLink}" target="_blank" class="clickable-link no-underline info-contato">
+                                        <span class="no-print">📞</span> ${p.telefone || 'Sede'}
                                     </a>
-                                    <button onclick="deletar(${p.id})" class="no-print opacity-0 group-hover:opacity-100 text-red-500 text-[9px] font-black uppercase hover:underline transition-all">Remover</button>
+                                    <button onclick="deletar(${p.id})" class="no-print opacity-0 group-hover:opacity-100 text-red-500 text-[9px] font-black uppercase">Remover</button>
                                 </div>
                             </div>
                         </div>`;
@@ -339,11 +226,9 @@
                 container.innerHTML += html + `</div>`;
             }
         }
-
         function toggleModal(id) { document.getElementById(id).classList.toggle('hidden'); }
-        async function deletar(id) { if(confirm("Deseja realmente remover este convênio permanentemente?")) { await fetch(`${SUPABASE_URL}/rest/v1/parceiros?id=eq.${id}`, { method: 'DELETE', headers: { "apikey": SUPABASE_KEY, "Authorization": `Bearer ${SUPABASE_KEY}` } }); carregarDados(); } }
-        function filtrar() { const termo = document.getElementById('inputBusca').value.toLowerCase(); const f = DADOS_GLOBAIS.filter(p => p.nome.toLowerCase().includes(termo) || p.categoria.toLowerCase().includes(termo) || p.cidade.toLowerCase().includes(termo)); render(f); }
-
+        async function deletar(id) { if(confirm("Remover permanentemente?")) { await fetch(`${SUPABASE_URL}/rest/v1/parceiros?id=eq.${id}`, { method: 'DELETE', headers: { "apikey": SUPABASE_KEY, "Authorization": `Bearer ${SUPABASE_KEY}` } }); carregarDados(); } }
+        function filtrar() { const t = document.getElementById('inputBusca').value.toLowerCase(); render(DADOS_GLOBAIS.filter(p => p.nome.toLowerCase().includes(t) || p.categoria.toLowerCase().includes(t) || p.cidade.toLowerCase().includes(t))); }
         window.onload = carregarDados;
     </script>
 </body>
