@@ -46,7 +46,7 @@
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <img src="https://hplbefhrlxwiznncvglj.supabase.co/storage/v1/object/public/logos/1782511945706-jud6h.png" alt="Sinodonto AC" class="h-16 w-auto object-contain">
             <div class="flex items-center gap-4">
-                <button onclick="forçarCargaEmMassa()" class="text-xs font-bold text-amber-600 hover:text-amber-700 uppercase tracking-wider mr-2">⚡ Injetar Guia 2026</button>
+                <button onclick="forçarCargaEmMassa()" class="text-xs font-bold text-amber-600 hover:text-amber-700 uppercase tracking-wider mr-2">⚡ Sincronizar Guia 2026</button>
                 <button onclick="abrirNovo()" class="text-slate-600 hover:text-red-800 text-xs font-bold uppercase tracking-widest transition-all">+ Novo Parceiro</button>
                 <button onclick="window.print()" class="bg-red-900 text-white text-xs font-black px-6 py-3 rounded-xl hover:bg-red-800 shadow-lg uppercase italic tracking-wider">Gerar Guia PDF</button>
             </div>
@@ -191,8 +191,6 @@
                     local[cid][cat].forEach(p => {
                         const cleanPhone = (p.telefone || '').split(/[/,]/)[0].replace(/\D/g, '');
                         let phoneLink = (cleanPhone.length >= 8) ? ((cleanPhone.length >= 10 && (cleanPhone[2] == '9' || cleanPhone[0] == '9')) ? 'https://wa.me/55'+cleanPhone : 'tel:+55'+cleanPhone) : '#';
-                        
-                        // CORREÇÃO: Trocado o caractere com bug '0{' pelo correto '${' na concatenação do Maps
                         const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.nome + ' ' + (p.endereco || '') + ' ' + p.cidade)}`;
                         const logoSrc = p.logo ? p.logo : `https://ui-avatars.com/api/?name=${encodeURIComponent(p.nome)}&background=f1f5f9&color=941b1b&size=128&font-size=0.35&bold=true`;
 
@@ -233,9 +231,10 @@
         async function deletar(id) { if(confirm("Remover permanentemente?")) { await fetch(`${SUPABASE_URL}/rest/v1/parceiros?id=eq.${id}`, { method: 'DELETE', headers: { "apikey": SUPABASE_KEY, "Authorization": `Bearer ${SUPABASE_KEY}` } }); carregarDados(); } }
         function filtrar() { const t = document.getElementById('inputBusca').value.toLowerCase(); render(DADOS_GLOBAIS.filter(p => p.nome.toLowerCase().includes(t) || p.categoria.toLowerCase().includes(t) || p.cidade.toLowerCase().includes(t))); }
         
-        // FUNÇÃO DE AUTOMATIZAÇÃO PARA INJETAR O GUIA ATUALIZADO 2026 CASO PRECISE REPOVOAR
+        // CORREÇÃO: Função inteligente que valida duplicados antes de injetar
         async function forçarCargaEmMassa() {
-            if(!confirm("Deseja injetar em lote todos os novos parceiros do Guia Oficial 2026?")) return;
+            if(!confirm("Deseja sincronizar a lista do Guia Oficial 2026? Registos já existentes não serão duplicados.")) return;
+            
             const novos = [
                 { cidade: "Rio Branco", categoria: "Academias", nome: "COLISEU ACADEMIA", tag_desconto: "15% OFF", beneficio: "15% de desconto para sindicalizados.", endereco: "Rua Jambo, nº 76 – Morada do Sol", telefone: "(68) 2102-5573" },
                 { cidade: "Rio Branco", categoria: "Academias", nome: "POWER FITNESS ACADEMIA", tag_desconto: "10% OFF", beneficio: "10% de desconto para sindicalizados.", endereco: "Rua Mercúrio, nº 687 – Morada do Sol", telefone: "(68) 3301-7280" },
@@ -247,17 +246,27 @@
                 { cidade: "Rio Branco", categoria: "Cursos", nome: "CNA IDIOMAS", tag_desconto: "Até 15% OFF", beneficio: "15% de desconto à vista ou 10% parcelado.", endereco: "Rua João Paulo XXIII, 1002 – Village Maciel", telefone: "(68) 3224-6986" },
                 { cidade: "Rio Branco", categoria: "Alimentação", nome: "AFA BISTRÔ D’AMAZÔNIA", tag_desconto: "10% OFF", beneficio: "10% de desconto em consumação local.", endereco: "Rua Franco Ribeiro, nº 109 – Centro", telefone: "" },
                 { cidade: "Rio Branco", categoria: "Alimentação", nome: "DIVINO FOGÃO", tag_desconto: "20% OFF", beneficio: "20% de desconto em refeições.", endereco: "Via Verde Shopping – Floresta", telefone: "" },
-                { cidade: "Cruzeiro do Sul", categoria: "Saúde", nome: "FISIO+ SAÚDE INTEGRATIVA", tag_desconto: "Até 20% OFF", beneficio: "10% a 20% de desconto nos serviços de saúde integrada.", endereco: "Rua Rio Grande do Sul, nº 1300 – Bairro São José", telefone: "(68) 99208-0909" },
+                { cidade: "Cruzeiro do Sul", categoria: "Saúde", nome: "FISIO+ SAÚDE INTEGRATIVA", tag_desconto: "Até 20% OFF", beneficio: "10% a 20% de desconto nos services de saúde integrada.", endereco: "Rua Rio Grande do Sul, nº 1300 – Bairro São José", telefone: "(68) 99208-0909" },
                 { cidade: "Cruzeiro do Sul", categoria: "Comércio", nome: "SUPER BURGER CZS", tag_desconto: "20% OFF", beneficio: "20% de desconto em toda a linha de hambúrgueres.", endereco: "Cruzeiro do Sul/AC", telefone: "" }
             ];
+
+            let inseridos = 0;
             for (let p of novos) {
-                await fetch(`${SUPABASE_URL}/rest/v1/parceiros`, {
-                    method: 'POST',
-                    headers: { "apikey": SUPABASE_KEY, "Authorization": `Bearer ${SUPABASE_KEY}`, "Content-Type": "application/json" },
-                    body: JSON.stringify(p)
-                });
+                // Bloqueador de duplicados: Verifica se o nome e cidade já existem no array global atual
+                const existe = DADOS_GLOBAIS.some(x => x.nome.toLowerCase() === p.nome.toLowerCase() && x.cidade.toLowerCase() === p.cidade.toLowerCase());
+                
+                if (!existe) {
+                    await fetch(`${SUPABASE_URL}/rest/v1/parceiros`, {
+                        method: 'POST',
+                        headers: { "apikey": SUPABASE_KEY, "Authorization": `Bearer ${SUPABASE_KEY}`, "Content-Type": "application/json" },
+                        body: JSON.stringify(p)
+                    });
+                    inseridos++;
+                }
             }
-            alert("Injeção concluída!"); carregarDados();
+            
+            alert(`Sincronização concluída! ${inseridos} novos parceiros foram adicionados.`);
+            carregarDados();
         }
 
         window.onload = carregarDados;
