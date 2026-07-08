@@ -38,21 +38,25 @@
         <img src="https://hplbefhrlxwiznncvglj.supabase.co/storage/v1/object/public/logos/1782511945706-jud6h.png" class="h-10">
         <div class="text-right">
             <h1 class="text-lg font-black text-red-900 uppercase italic">Guia de Convênios Sinodonto/AC</h1>
-            <p class="text-[9px] font-bold text-slate-500 uppercase tracking-widest">Links ativos no PDF</p>
+            <p class="text-[9px] font-bold text-slate-500 uppercase tracking-widest">Links activos no PDF</p>
         </div>
     </div>
 
     <header class="no-print sticky top-0 z-50 glass-header">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <img src="https://hplbefhrlxwiznncvglj.supabase.co/storage/v1/object/public/logos/1782511945706-jud6h.png" alt="Sinodonto AC" class="h-16 w-auto object-contain">
-            <div class="flex gap-4">
-                <button onclick="abrirNovo()" class="text-slate-600 hover:text-red-800 text-xs font-bold uppercase tracking-widest transition-all">+ Novo Parceiro</button>
+            <div class="flex items-center gap-4">
+                <!-- Botão de Controle de Login Manual -->
+                <button id="btnAuth" onclick="handleAuthAction()" class="text-slate-500 hover:text-slate-800 text-xs font-bold uppercase tracking-widest transition-all">🔒 Área Restrita</button>
+                
+                <!-- Botões administrativos (escondidos por padrão via JS se deslogado) -->
+                <button id="btnNovoParceiro" onclick="abrirNovo()" class="hidden text-slate-600 hover:text-red-800 text-xs font-bold uppercase tracking-widest transition-all">+ Novo Parceiro</button>
                 <button onclick="window.print()" class="bg-red-900 text-white text-xs font-black px-6 py-3 rounded-xl hover:bg-red-800 shadow-lg uppercase italic tracking-wider">Gerar Guia PDF</button>
             </div>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-6 py-12 pt-24">
+    <main class="max-w-7xl mx-auto px-6 py-12 pt-28">
         <div class="no-print mb-12">
             <h2 class="text-slate-900 text-5xl font-black tracking-tighter mb-2 italic uppercase">Clube de Benefícios</h2>
             <div class="relative max-w-xl mt-6">
@@ -65,10 +69,12 @@
         </div>
     </main>
 
+    <!-- Modal Cadastro / Edição -->
     <div id="modal-add" class="fixed inset-0 z-[100] hidden bg-slate-900/80 backdrop-blur-md flex items-center justify-center p-4 no-print">
         <div class="w-full max-w-xl bg-white rounded-[2.5rem] shadow-2xl p-8 max-h-[90vh] overflow-y-auto">
             <form id="formAdd" onsubmit="handleUploadESalvar(event)" class="space-y-5">
-                <input type="hidden" id="editId"> <div class="flex justify-between items-center mb-4">
+                <input type="hidden" id="editId">
+                <div class="flex justify-between items-center mb-4">
                     <h2 id="modalTitle" class="text-2xl font-black italic uppercase">Novo Parceiro</h2>
                     <button type="button" onclick="toggleModal('modal-add')" class="text-3xl">✕</button>
                 </div>
@@ -95,25 +101,49 @@
     <script>
         const SUPABASE_URL = "https://hplbefhrlxwiznncvglj.supabase.co";
         const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhwbGJlZmhybHh3aXpubmN2Z2xqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI0MDg3ODksImV4cCI6MjA5Nzk4NDc4OX0.cAqD3vNc9FqWC4OxoHw5DRJJr26N1QCVpkaUV6jezjQ";
-        
-        // 🔒 SENHA MASTER DO ADMINISTRADOR
-        const SENHA_ADMINISTRADOR = "admin77";
-
         let DADOS_GLOBAIS = [];
         let currentLogoUrl = '';
+        const MASTER_PASSWORD = "admin77"; // Sua chave de acesso fixa
 
-        // Bloqueador de segurança para mutações
-        function validarChaveAcesso() {
-            const senha = prompt("🔐 Digite a senha master de administrador para realizar alterações:");
-            if (senha === SENHA_ADMINISTRADOR) return true;
-            alert("❌ Senha incorreta! Acesso negado.");
-            return false;
+        // Checa se o usuário já fez login anteriormente neste computador
+        function esAdmin() {
+            return localStorage.getItem('sinodonto_session') === 'autenticado';
+        }
+
+        function atualizarBotoesPainel() {
+            if (esAdmin()) {
+                document.getElementById('btnAuth').innerText = "🔓 Sair (Admin)";
+                document.getElementById('btnNovoParceiro').classList.remove('hidden');
+            } else {
+                document.getElementById('btnAuth').innerText = "🔒 Área Restrita";
+                document.getElementById('btnNovoParceiro').classList.add('hidden');
+            }
+        }
+
+        function handleAuthAction() {
+            if (esAdmin()) {
+                localStorage.removeItem('sinodonto_session');
+                alert("Sessão administrativa encerrada.");
+                atualizarBotoesPainel();
+                render(DADOS_GLOBAIS);
+            } else {
+                const senha = prompt("Insira a senha de administrador para liberar as edições:");
+                if (senha === MASTER_PASSWORD) {
+                    localStorage.setItem('sinodonto_session', 'autenticado');
+                    atualizarBotoesPainel();
+                    render(DADOS_GLOBAIS);
+                } else if (senha !== null) {
+                    alert("Senha incorreta.");
+                }
+            }
         }
 
         async function carregarDados() {
+            atualizarBotoesPainel();
             const res = await fetch(`${SUPABASE_URL}/rest/v1/parceiros?select=*`, { headers: { "apikey": SUPABASE_KEY, "Authorization": `Bearer ${SUPABASE_KEY}` } });
             DADOS_GLOBAIS = await res.json();
             
+            // Auto-carga caso o banco de dados seja limpo acidentalmente
             if (!DADOS_GLOBAIS || DADOS_GLOBAIS.length === 0) {
                 await executarCargaSilenciosa();
             } else {
@@ -123,7 +153,7 @@
         }
 
         function abrirNovo() {
-            if (!validarChaveAcesso()) return;
+            if (!esAdmin()) return alert("Acesso restrito.");
             document.getElementById('formAdd').reset();
             document.getElementById('editId').value = '';
             document.getElementById('modalTitle').innerText = "Novo Parceiro";
@@ -133,7 +163,7 @@
         }
 
         function abrirEditar(id) {
-            if (!validarChaveAcesso()) return;
+            if (!esAdmin()) return alert("Acesso restrito.");
             const p = DADOS_GLOBAIS.find(x => x.id === id);
             if (!p) return;
             document.getElementById('editId').value = p.id;
@@ -152,6 +182,7 @@
 
         async function handleUploadESalvar(e) {
             e.preventDefault();
+            if (!esAdmin()) return alert("Acesso negado.");
             const btn = document.getElementById('btnSalvar');
             const id = document.getElementById('editId').value;
             btn.innerText = "PROCESSANDO..."; btn.disabled = true;
@@ -161,23 +192,31 @@
 
             if (file) {
                 const fileName = `${Date.now()}-${file.name}`;
-                const uploadRes = await fetch(`${SUPABASE_URL}/storage/v1/object/logos/${fileName}`, { 
-                    method: 'POST', 
-                    headers: { "apikey": SUPABASE_KEY, "Authorization": `Bearer ${SUPABASE_KEY}`, "Content-Type": file.type }, 
-                    body: file 
-                });
-                if (uploadRes.ok) logoUrl = `${SUPABASE_URL}/storage/v1/object/public/logos/${fileName}`;
+                const uploadUrl = `${SUPABASE_URL}/storage/v1/object/logos/${fileName}`;
+
+                try {
+                    const uploadResponse = await fetch(uploadUrl, {
+                        method: 'POST',
+                        headers: { "apikey": SUPABASE_KEY, "Authorization": `Bearer ${SUPABASE_KEY}`, "Content-Type": file.type },
+                        body: file
+                    });
+                    if (uploadResponse.ok) {
+                        logoUrl = `${SUPABASE_URL}/storage/v1/object/public/logos/${fileName}`;
+                    }
+                } catch {
+                    alert("Erro ao enviar a imagem.");
+                }
             }
 
             const corpo = { 
-                cidade: document.getElementById('pCidade').value, 
-                categoria: document.getElementById('pCategoria').value, 
-                nome: document.getElementById('pNome').value, 
+                cidade: document.getElementById('pCidade').value.trim(), 
+                categoria: document.getElementById('pCategoria').value.trim(), 
+                nome: document.getElementById('pNome').value.trim(), 
                 logo: logoUrl, 
-                tag_desconto: document.getElementById('pDesconto').value, 
-                beneficio: document.getElementById('pBeneficio').value, 
-                endereco: document.getElementById('pEndereco').value, 
-                telefone: document.getElementById('pTelefone').value 
+                tag_desconto: document.getElementById('pDesconto').value.trim(), 
+                beneficio: document.getElementById('pBeneficio').value.trim(), 
+                endereco: document.getElementById('pEndereco').value.trim(), 
+                telefone: document.getElementById('pTelefone').value.trim() 
             };
 
             const url = id ? `${SUPABASE_URL}/rest/v1/parceiros?id=eq.${id}` : `${SUPABASE_URL}/rest/v1/parceiros`;
@@ -201,6 +240,8 @@
                 local[p.cidade][p.categoria].push(p);
             });
 
+            const isAdminLogado = esAdmin();
+
             for (const cid in local) {
                 let html = `<div class="cid-group"><h2 class="text-slate-900 text-3xl font-black mb-8 flex items-center gap-6 italic uppercase tracking-tighter">${cid} <div class="h-[2px] flex-1 bg-slate-200"></div></h2>`;
                 for (const cat in local[cid]) {
@@ -208,20 +249,29 @@
                     local[cid][cat].forEach(p => {
                         const cleanPhone = (p.telefone || '').split(/[/,]/)[0].replace(/\D/g, '');
                         let phoneLink = (cleanPhone.length >= 8) ? ((cleanPhone.length >= 10 && (cleanPhone[2] == '9' || cleanPhone[0] == '9')) ? 'https://wa.me/55'+cleanPhone : 'tel:+55'+cleanPhone) : '#';
-                        const mapsLink = `maps.google.com/0${encodeURIComponent(p.nome + ' ' + (p.endereco || '') + ' ' + p.cidade)}`;
+                        const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.nome + ' ' + (p.endereco || '') + ' ' + p.cidade)}`;
                         const logoSrc = p.logo ? p.logo : `https://ui-avatars.com/api/?name=${encodeURIComponent(p.nome)}&background=f1f5f9&color=941b1b&size=128&font-size=0.35&bold=true`;
+
+                        // Renderiza os botões "Editar" e "Remover" de forma condicional se logado
+                        const acoesAdminHTML = isAdminLogado ? `
+                            <div class="flex flex-col items-end gap-2">
+                                <span class="badge-discount">${p.tag_desconto}</span>
+                                <button onclick="abrirEditar(${p.id})" class="text-[14px] font-black text-slate-600 hover:text-red-900 uppercase">📝 Editar</button>
+                            </div>
+                        ` : `<span class="badge-discount">${p.tag_desconto}</span>`;
+
+                        const botaoDeletarHTML = isAdminLogado ? `
+                            <button onclick="deletar(${p.id})" class="no-print opacity-0 group-hover:opacity-100 text-red-500 text-[14px] font-black uppercase">Remover</button>
+                        ` : '';
 
                         html += `
                         <div class="card-partner rounded-[2.5rem] p-8 flex flex-col justify-between group bg-white relative">
                             <div>
-                                <div class="flex justify-between items-start mb-6 no-print">
-                                    <div class="logo-container w-16 h-16 rounded-2xl bg-slate-50 flex items-center justify-center overflow-hidden border border-slate-100 shadow-sm">
+                                <div class="flex justify-between items-start mb-6">
+                                    <div class="logo-container w-16 h-16 rounded-2xl bg-slate-50 flex items-center justify-center overflow-hidden border border-slate-100 shadow-sm no-print">
                                         <img src="${logoSrc}" class="w-full h-full object-contain p-1" loading="lazy">
                                     </div>
-                                    <div class="flex flex-col items-end gap-2">
-                                        <span class="badge-discount">${p.tag_desconto}</span>
-                                        <button onclick="abrirEditar(${p.id})" class="text-[14px] font-black text-slate-600 hover:text-red-900 uppercase">📝 Editar</button>
-                                    </div>
+                                    ${acoesAdminHTML}
                                 </div>
                                 <h4 class="text-slate-900 font-bold text-xl mb-4 leading-tight tracking-tight uppercase">${p.nome} <span class="hidden print:inline-block badge-discount ml-2">${p.tag_desconto}</span></h4>
                                 <p class="text-slate-500 text-sm leading-relaxed mb-8 font-medium italic beneficio-txt">"${p.beneficio}"</p>
@@ -234,7 +284,7 @@
                                     <a href="${phoneLink}" target="_blank" class="clickable-link no-underline info-contato">
                                         <span class="no-print">📞</span> ${p.telefone || 'Sede'}
                                     </a>
-                                    <button onclick="deletar(${p.id})" class="no-print opacity-0 group-hover:opacity-100 text-red-500 text-[14px] font-black uppercase">Remover</button>
+                                    ${botaoDeletarHTML}
                                 </div>
                             </div>
                         </div>`;
@@ -244,11 +294,12 @@
                 container.innerHTML += html + `</div>`;
             }
         }
+
         function toggleModal(id) { document.getElementById(id).classList.toggle('hidden'); }
         
         async function deletar(id) { 
-            if (!validarChaveAcesso()) return;
-            if(confirm("Remover permanentemente?")) { 
+            if (!esAdmin()) return alert("Operação restrita.");
+            if(confirm("Remover permanentemente este convênio?")) { 
                 await fetch(`${SUPABASE_URL}/rest/v1/parceiros?id=eq.${id}`, { method: 'DELETE', headers: { "apikey": SUPABASE_KEY, "Authorization": `Bearer ${SUPABASE_KEY}` } }); 
                 carregarDados(); 
             } 
